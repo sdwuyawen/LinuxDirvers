@@ -1,0 +1,17 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+KERN_DIR	Makefile	/^KERN_DIR = \/home\/wu\/workspace\/kernel\/linux-2.6.22.with_yaffs20070816$/;"	m
+__attribute_used__	mymsg.mod.c	/^__attribute_used__$/;"	v	file:
+__this_module	mymsg.mod.c	/^struct module __this_module$/;"	v	typeref:struct:module
+myentry	mymsg.c	/^struct proc_dir_entry *myentry;$/;"	v	typeref:struct:proc_dir_entry
+mylog_buf	mymsg.c	/^static char mylog_buf[1024];$/;"	v	file:
+mymsg_exit	mymsg.c	/^module_exit(mymsg_exit);$/;"	v
+mymsg_exit	mymsg.c	/^static void mymsg_exit(void)$/;"	f	file:	signature:(void)
+mymsg_init	mymsg.c	/^module_init(mymsg_init);$/;"	v
+mymsg_init	mymsg.c	/^static int mymsg_init(void)$/;"	f	file:	signature:(void)
+mymsg_read	mymsg.c	/^static ssize_t mymsg_read(struct file *file, char __user *buf,$/;"	f	file:	signature:(struct file *file, char __user *buf, size_t count, loff_t *ppos)
+proc_mymsg_operations	mymsg.c	/^const struct file_operations proc_mymsg_operations = $/;"	v	typeref:struct:file_operations

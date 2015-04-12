@@ -1,0 +1,15 @@
+/.cvsignore/1.1/Sat Feb 26 02:02:23 2005//
+/Makefile.am/1.7/Mon Feb 28 23:44:12 2005//
+/arctic2-raw.c/1.3/Sat Feb 26 01:47:22 2005//
+/collie-raw.c/1.3/Sat Feb 26 01:47:22 2005//
+/corgi-raw.c/1.3/Sat Feb 26 01:47:23 2005//
+/dejitter.c/1.10/Sat Feb 26 01:47:23 2005//
+/h3600-raw.c/1.3/Sat Feb 26 01:47:23 2005//
+/input-raw.c/1.5/Sat Feb 26 01:47:23 2005//
+/linear-h2200.c/1.1/Sat Feb 26 01:54:51 2005//
+/linear.c/1.10/Sat Feb 26 01:47:23 2005//
+/mk712-raw.c/1.3/Sat Feb 26 01:47:23 2005//
+/pthres.c/1.3/Sat Feb 26 01:47:23 2005//
+/ucb1x00-raw.c/1.3/Sat Feb 26 01:47:23 2005//
+/variance.c/1.6/Sat Feb 26 01:47:23 2005//
+D

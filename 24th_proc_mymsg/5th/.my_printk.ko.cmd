@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/24th_proc_mymsg/4th/my_printk.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/24th_proc_mymsg/4th/my_printk.ko /home/wu/workspace/drivers/24th_proc_mymsg/4th/my_printk.o /home/wu/workspace/drivers/24th_proc_mymsg/4th/my_printk.mod.o

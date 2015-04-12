@@ -1,0 +1,4026 @@
+cscope 15 $HOME/workspace/drivers/24th_proc_mymsg/4th -q 0000000575 0000022706
+	@mymsg.c
+
+19 
+	~<lšux/moduË.h
+>
+
+20 
+	~<lšux/k”Ãl.h
+>
+
+21 
+	~<lšux/fs.h
+>
+
+22 
+	~<lšux/š™.h
+>
+
+23 
+	~<lšux/d–ay.h
+>
+
+24 
+	~<asm/uacûss.h
+>
+
+25 
+	~<asm/œq.h
+>
+
+26 
+	~<asm/io.h
+>
+
+27 
+	~<asm/¬ch/»gs-gpio.h
+>
+
+28 
+	~<asm/h¬dw¬e.h
+>
+
+29 
+	~<lšux/´oc_fs.h
+>
+
+31 
+	#MYLOG_BUF_LEN
+ 1024
+
+	)
+
+33 
+´oc_dœ_’Œy
+ *
+	gmy’Œy
+;
+
+34 
+	gmylog_buf
+[
+MYLOG_BUF_LEN
+];
+
+35 
+	gtmp_buf
+[
+MYLOG_BUF_LEN
+];
+
+36 
+	gmylog_r
+ = 0;
+
+37 
+	gmylog_w
+ = 0;
+
+39 
+DECLARE_WAIT_QUEUE_HEAD
+(
+mymsg_wa™q
+);
+
+41 
+	$is_mylog_em±y
+()
+
+43  (
+mylog_r
+ =ð
+mylog_w
+);
+
+44 
+	}
+}
+
+46 
+	$is_mylog_fuÎ
+()
+
+48 ià((
+mylog_w
+ + 1)% 
+MYLOG_BUF_LEN
+ =ð
+mylog_r
+)
+
+53 
+	}
+}
+
+56 
+	$mylog_putc
+(
+c
+)
+
+58 ià(
+	`is_mylog_fuÎ
+())
+
+61 
+mylog_r
+ = (mylog_¸+ 1è% 
+MYLOG_BUF_LEN
+;
+
+64 
+mylog_buf
+[
+mylog_w
+] = 
+c
+;
+
+65 
+mylog_w
+ = (mylog_w + 1è% 
+MYLOG_BUF_LEN
+;
+
+68 
+	`wake_up_š‹¼u±ibË
+(&
+mymsg_wa™q
+);
+
+69 
+	}
+}
+
+71 
+	$mylog_g‘c
+(*
+p
+)
+
+73 ià(
+	`is_mylog_em±y
+())
+
+77 *
+p
+ = 
+mylog_buf
+[
+mylog_r
+];
+
+78 
+mylog_r
+ = (mylog_¸+ 1è% 
+MYLOG_BUF_LEN
+;
+
+80 
+	}
+}
+
+82 
+	$my´štk
+(cÚ¡ *
+fmt
+, ...)
+
+84 
+va_li¡
+ 
+¬gs
+;
+
+85 
+i
+;
+
+86 
+j
+;
+
+88 
+	`va_¡¬t
+(
+¬gs
+, 
+fmt
+);
+
+89 
+i
+ = 
+	`v¢´štf
+(
+tmp_buf
+, 
+INT_MAX
+, 
+fmt
+, 
+¬gs
+);
+
+90 
+	`va_’d
+(
+¬gs
+);
+
+92 
+j
+ = 0; j < 
+i
+; j++)
+
+93 
+	`mylog_putc
+(
+tmp_buf
+[
+j
+]);
+
+95  
+i
+;
+
+96 
+	}
+}
+
+98 
+ssize_t
+ 
+	$mymsg_»ad
+(
+fže
+ *fže, 
+__u£r
+ *
+buf
+,
+
+99 
+size_t
+ 
+couÁ
+, 
+loff_t
+ *
+µos
+)
+
+102 
+”rÜ
+ = 0;
+
+103 
+i
+ = 0;
+
+104 
+c
+;
+
+106 
+	`´štk
+("mymsg_read\n");
+
+111 ià((
+fže
+->
+f_æags
+ & 
+O_NONBLOCK
+è&& 
+	`is_mylog_em±y
+())
+
+112  -
+EAGAIN
+;
+
+114 
+”rÜ
+ = 
+	`wa™_ev’t_š‹¼u±ibË
+(
+mymsg_wa™q
+, !
+	`is_mylog_em±y
+());
+
+117 !
+”rÜ
+ && (
+	`mylog_g‘c
+(&
+c
+)è&& 
+i
+ < 
+couÁ
+)
+
+119 
+”rÜ
+ = 
+	`__put_u£r
+(
+c
+, 
+buf
+);
+
+120 
+buf
+++;
+
+121 
+i
+++;
+
+126 ià(!
+”rÜ
+)
+
+127 
+”rÜ
+ = 
+i
+;
+
+128  
+”rÜ
+;
+
+129 
+	}
+}
+
+131 cÚ¡ 
+fže_Ý”©iÚs
+ 
+	g´oc_mymsg_Ý”©iÚs
+ =
+
+133 .
+»ad
+ = 
+mymsg_»ad
+,
+
+136 
+	$mymsg_š™
+()
+
+138 
+	`¥rštf
+(
+mylog_buf
+, "123456\n");
+
+140 
+my’Œy
+ = 
+	`ü—‹_´oc_’Œy
+("mymsg", 
+S_IRUSR
+, &
+´oc_roÙ
+);
+
+141 ià(
+my’Œy
+)
+
+142 
+my’Œy
+->
+´oc_fÝs
+ = &
+´oc_mymsg_Ý”©iÚs
+;
+
+144 
+	}
+}
+
+146 
+	$mymsg_ex™
+()
+
+148 
+	`»move_´oc_’Œy
+("mymsg", &
+´oc_roÙ
+);
+
+149 
+	}
+}
+
+151 
+moduË_š™
+(
+mymsg_š™
+);
+
+152 
+moduË_ex™
+(
+mymsg_ex™
+);
+
+154 
+MODULE_LICENSE
+("GPL");
+
+	@mymsg.mod.c
+
+1 
+	~<lšux/moduË.h
+>
+
+2 
+	~<lšux/v”magic.h
+>
+
+3 
+	~<lšux/compž”.h
+>
+
+5 
+MODULE_INFO
+(
+v”magic
+, 
+VERMAGIC_STRING
+);
+
+7 
+moduË
+ 
+__this_moduË
+
+
+8 
+__©Œibu‹__
+((
+£ùiÚ
+(".gnu.linkonce.this_module"))) = {
+
+9 .
+Çme
+ = 
+KBUILD_MODNAME
+,
+
+10 .
+	gš™
+ = 
+š™_moduË
+,
+
+11 #ifdeà
+CONFIG_MODULE_UNLOAD
+
+
+12 .
+	gex™
+ = 
+þ—nup_moduË
+,
+
+14 .
+	g¬ch
+ = 
+MODULE_ARCH_INIT
+,
+
+17 cÚ¡ 
+	g__moduË_d•’ds
+[]
+
+18 
+__©Œibu‹_u£d__
+
+
+19 
+__©Œibu‹__
+((
+£ùiÚ
+(".modinfo"))) =
+
+	@/usr/include/linux/fs.h
+
+1 #iâdeà
+_LINUX_FS_H
+
+
+2 
+	#_LINUX_FS_H
+
+
+	)
+
+9 
+	~<lšux/lim™s.h
+>
+
+10 
+	~<lšux/ioùl.h
+>
+
+11 
+	~<lšux/blk_ty³s.h
+>
+
+12 
+	~<lšux/ty³s.h
+>
+
+25 #undeà
+NR_OPEN
+
+
+26 
+	#INR_OPEN_CUR
+ 1024
+
+	)
+
+27 
+	#INR_OPEN_MAX
+ 4096
+
+	)
+
+29 
+	#BLOCK_SIZE_BITS
+ 10
+
+	)
+
+30 
+	#BLOCK_SIZE
+ (1<<
+BLOCK_SIZE_BITS
+)
+
+	)
+
+32 
+	#SEEK_SET
+ 0
+
+	)
+
+33 
+	#SEEK_CUR
+ 1
+
+	)
+
+34 
+	#SEEK_END
+ 2
+
+	)
+
+35 
+	#SEEK_MAX
+ 
+SEEK_END
+
+
+	)
+
+37 
+	sf¡rim_¿nge
+ {
+
+38 
+__u64
+ 
+	m¡¬t
+;
+
+39 
+__u64
+ 
+	mËn
+;
+
+40 
+__u64
+ 
+	mmšËn
+;
+
+44 
+	sfžes_¡©_¡ruù
+ {
+
+45 
+	mÄ_fžes
+;
+
+46 
+	mÄ_ä“_fžes
+;
+
+47 
+	mmax_fžes
+;
+
+50 
+	sšodes_¡©_t
+ {
+
+51 
+	mÄ_šodes
+;
+
+52 
+	mÄ_unu£d
+;
+
+53 
+	mdummy
+[5];
+
+57 
+	#NR_FILE
+ 8192
+
+	)
+
+59 
+	#MAY_EXEC
+ 1
+
+	)
+
+60 
+	#MAY_WRITE
+ 2
+
+	)
+
+61 
+	#MAY_READ
+ 4
+
+	)
+
+62 
+	#MAY_APPEND
+ 8
+
+	)
+
+63 
+	#MAY_ACCESS
+ 16
+
+	)
+
+64 
+	#MAY_OPEN
+ 32
+
+	)
+
+72 
+	#FMODE_READ
+ ((
+fmode_t
+)1)
+
+	)
+
+74 
+	#FMODE_WRITE
+ ((
+fmode_t
+)2)
+
+	)
+
+76 
+	#FMODE_LSEEK
+ ((
+fmode_t
+)4)
+
+	)
+
+78 
+	#FMODE_PREAD
+ ((
+fmode_t
+)8)
+
+	)
+
+80 
+	#FMODE_PWRITE
+ ((
+fmode_t
+)16)
+
+	)
+
+82 
+	#FMODE_EXEC
+ ((
+fmode_t
+)32)
+
+	)
+
+84 
+	#FMODE_NDELAY
+ ((
+fmode_t
+)64)
+
+	)
+
+86 
+	#FMODE_EXCL
+ ((
+fmode_t
+)128)
+
+	)
+
+89 
+	#FMODE_WRITE_IOCTL
+ ((
+fmode_t
+)256)
+
+	)
+
+91 
+	#FMODE_32BITHASH
+ ((
+fmode_t
+)0x200)
+
+	)
+
+93 
+	#FMODE_64BITHASH
+ ((
+fmode_t
+)0x400)
+
+	)
+
+101 
+	#FMODE_NOCMTIME
+ ((
+fmode_t
+)2048)
+
+	)
+
+104 
+	#FMODE_RANDOM
+ ((
+fmode_t
+)4096)
+
+	)
+
+162 
+	#RW_MASK
+ 
+REQ_WRITE
+
+
+	)
+
+163 
+	#RWA_MASK
+ (1 << 
+BIO_RW_AHEAD
+)
+
+	)
+
+165 
+	#READ
+ 0
+
+	)
+
+166 
+	#WRITE
+ 1
+
+	)
+
+167 
+	#READA
+ 
+RWA_MASK
+
+
+	)
+
+168 
+	#SWRITE
+ (
+WRITE
+ | 
+READA
+)
+
+	)
+
+170 
+	#READ_SYNC
+ (
+READ
+ | (1 << 
+BIO_RW_SYNCIO
+è| (1 << 
+BIO_RW_UNPLUG
+))
+
+	)
+
+171 
+	#READ_META
+ (
+READ
+ | (1 << 
+BIO_RW_META
+))
+
+	)
+
+172 
+	#WRITE_SYNC_PLUG
+ (
+WRITE
+ | (1 << 
+BIO_RW_SYNCIO
+è| (1 << 
+BIO_RW_NOIDLE
+))
+
+	)
+
+173 
+	#WRITE_SYNC
+ (
+WRITE_SYNC_PLUG
+ | (1 << 
+BIO_RW_UNPLUG
+))
+
+	)
+
+174 
+	#WRITE_ODIRECT_PLUG
+ (
+WRITE
+ | (1 << 
+BIO_RW_SYNCIO
+))
+
+	)
+
+175 
+	#WRITE_META
+ (
+WRITE
+ | (1 << 
+BIO_RW_META
+))
+
+	)
+
+176 
+	#SWRITE_SYNC_PLUG
+ \
+
+177 (
+SWRITE
+ | (1 << 
+BIO_RW_SYNCIO
+è| (1 << 
+BIO_RW_NOIDLE
+))
+
+	)
+
+178 
+	#SWRITE_SYNC
+ (
+SWRITE_SYNC_PLUG
+ | (1 << 
+BIO_RW_UNPLUG
+))
+
+	)
+
+179 
+	#WRITE_BARRIER
+ (
+WRITE_SYNC
+ | (1 << 
+BIO_RW_BARRIER
+))
+
+	)
+
+181 
+	#WRITE_FLUSH
+ (
+WRITE_SYNC
+ | (1 << 
+BIO_RW_FLUSH
+))
+
+	)
+
+182 
+	#WRITE_FUA
+ (
+WRITE_SYNC
+ | (1 << 
+BIO_RW_FUA
+))
+
+	)
+
+183 
+	#WRITE_FLUSH_FUA
+ (
+WRITE_FLUSH
+ | 
+WRITE_FUA
+)
+
+	)
+
+190 
+	#DISCARD_NOBARRIER
+ (
+WRITE
+ | (1 << 
+BIO_RW_DISCARD
+))
+
+	)
+
+191 
+	#DISCARD_BARRIER
+ (
+DISCARD_NOBARRIER
+ | (1 << 
+BIO_RW_BARRIER
+))
+
+	)
+
+193 
+	#SEL_IN
+ 1
+
+	)
+
+194 
+	#SEL_OUT
+ 2
+
+	)
+
+195 
+	#SEL_EX
+ 4
+
+	)
+
+198 
+	#FS_REQUIRES_DEV
+ 1
+
+	)
+
+199 
+	#FS_BINARY_MOUNTDATA
+ 2
+
+	)
+
+200 
+	#FS_HAS_SUBTYPE
+ 4
+
+	)
+
+201 
+	#FS_HAS_NEW_FREEZE
+ 512
+
+	)
+
+202 
+	#FS_REVAL_DOT
+ 16384
+
+	)
+
+203 
+	#FS_RENAME_DOES_D_MOVE
+ 32768
+
+	)
+
+206 
+	#FS_HANDLE_QUOTA
+ (1<<16è
+
+	)
+
+207 
+	#FS_WEAK_REVALIDATE
+ (1<<17è
+
+	)
+
+214 
+	#sb_has_Ãw_ä“ze
+(
+sb
+è((sb)->
+s_ty³
+->
+fs_æags
+ & 
+FS_HAS_NEW_FREEZE
+)
+
+	)
+
+219 
+	#MS_RDONLY
+ 1
+
+	)
+
+220 
+	#MS_NOSUID
+ 2
+
+	)
+
+221 
+	#MS_NODEV
+ 4
+
+	)
+
+222 
+	#MS_NOEXEC
+ 8
+
+	)
+
+223 
+	#MS_SYNCHRONOUS
+ 16
+
+	)
+
+224 
+	#MS_REMOUNT
+ 32
+
+	)
+
+225 
+	#MS_MANDLOCK
+ 64
+
+	)
+
+226 
+	#MS_DIRSYNC
+ 128
+
+	)
+
+227 
+	#MS_NOATIME
+ 1024
+
+	)
+
+228 
+	#MS_NODIRATIME
+ 2048
+
+	)
+
+229 
+	#MS_BIND
+ 4096
+
+	)
+
+230 
+	#MS_MOVE
+ 8192
+
+	)
+
+231 
+	#MS_REC
+ 16384
+
+	)
+
+232 
+	#MS_VERBOSE
+ 32768
+
+	)
+
+234 
+	#MS_SILENT
+ 32768
+
+	)
+
+235 
+	#MS_POSIXACL
+ (1<<16è
+
+	)
+
+236 
+	#MS_UNBINDABLE
+ (1<<17è
+
+	)
+
+237 
+	#MS_PRIVATE
+ (1<<18è
+
+	)
+
+238 
+	#MS_SLAVE
+ (1<<19è
+
+	)
+
+239 
+	#MS_SHARED
+ (1<<20è
+
+	)
+
+240 
+	#MS_RELATIME
+ (1<<21è
+
+	)
+
+241 
+	#MS_KERNMOUNT
+ (1<<22è
+
+	)
+
+242 
+	#MS_I_VERSION
+ (1<<23è
+
+	)
+
+243 
+	#MS_STRICTATIME
+ (1<<24è
+
+	)
+
+244 
+	#MS_SNAP_STABLE
+ (1<<27è
+
+	)
+
+245 
+	#MS_BORN
+ (1<<29)
+
+	)
+
+246 
+	#MS_ACTIVE
+ (1<<30)
+
+	)
+
+247 
+	#MS_NOUSER
+ (1<<31)
+
+	)
+
+252 
+	#MS_RMT_MASK
+ (
+MS_RDONLY
+|
+MS_SYNCHRONOUS
+|
+MS_MANDLOCK
+|
+MS_I_VERSION
+)
+
+	)
+
+257 
+	#MS_MGC_VAL
+ 0xC0ED0000
+
+	)
+
+258 
+	#MS_MGC_MSK
+ 0xffff0000
+
+	)
+
+262 
+	#S_SYNC
+ 1
+
+	)
+
+263 
+	#S_NOATIME
+ 2
+
+	)
+
+264 
+	#S_APPEND
+ 4
+
+	)
+
+265 
+	#S_IMMUTABLE
+ 8
+
+	)
+
+266 
+	#S_DEAD
+ 16
+
+	)
+
+267 
+	#S_NOQUOTA
+ 32
+
+	)
+
+268 
+	#S_DIRSYNC
+ 64
+
+	)
+
+269 
+	#S_NOCMTIME
+ 128
+
+	)
+
+270 
+	#S_SWAPFILE
+ 256
+
+	)
+
+271 
+	#S_PRIVATE
+ 512
+
+	)
+
+272 
+	#S_AUTOMOUNT
+ 2048
+
+	)
+
+273 
+	#S_AOP_EXT
+ 16384
+
+	)
+
+288 
+	#__IS_FLG
+(
+šode
+,
+æg
+è((šode)->
+i_sb
+->
+s_æags
+ & (æg))
+
+	)
+
+290 
+	#IS_RDONLY
+(
+šode
+è((šode)->
+i_sb
+->
+s_æags
+ & 
+MS_RDONLY
+)
+
+	)
+
+291 
+	#IS_SYNC
+(
+šode
+è(
+	`__IS_FLG
+(šode, 
+MS_SYNCHRONOUS
+) || \
+
+292 ((
+šode
+)->
+i_æags
+ & 
+S_SYNC
+))
+
+	)
+
+293 
+	#IS_DIRSYNC
+(
+šode
+è(
+	`__IS_FLG
+(šode, 
+MS_SYNCHRONOUS
+|
+MS_DIRSYNC
+) || \
+
+294 ((
+šode
+)->
+i_æags
+ & (
+S_SYNC
+|
+S_DIRSYNC
+)))
+
+	)
+
+295 
+	#IS_MANDLOCK
+(
+šode
+è
+	`__IS_FLG
+(šode, 
+MS_MANDLOCK
+)
+
+	)
+
+296 
+	#IS_NOATIME
+(
+šode
+è
+	`__IS_FLG
+(šode, 
+MS_RDONLY
+|
+MS_NOATIME
+)
+
+	)
+
+297 
+	#IS_I_VERSION
+(
+šode
+è
+	`__IS_FLG
+(šode, 
+MS_I_VERSION
+)
+
+	)
+
+299 
+	#IS_NOQUOTA
+(
+šode
+è((šode)->
+i_æags
+ & 
+S_NOQUOTA
+)
+
+	)
+
+300 
+	#IS_APPEND
+(
+šode
+è((šode)->
+i_æags
+ & 
+S_APPEND
+)
+
+	)
+
+301 
+	#IS_IMMUTABLE
+(
+šode
+è((šode)->
+i_æags
+ & 
+S_IMMUTABLE
+)
+
+	)
+
+302 
+	#IS_POSIXACL
+(
+šode
+è
+	`__IS_FLG
+(šode, 
+MS_POSIXACL
+)
+
+	)
+
+304 
+	#IS_DEADDIR
+(
+šode
+è((šode)->
+i_æags
+ & 
+S_DEAD
+)
+
+	)
+
+305 
+	#IS_NOCMTIME
+(
+šode
+è((šode)->
+i_æags
+ & 
+S_NOCMTIME
+)
+
+	)
+
+306 
+	#IS_SWAPFILE
+(
+šode
+è((šode)->
+i_æags
+ & 
+S_SWAPFILE
+)
+
+	)
+
+307 
+	#IS_PRIVATE
+(
+šode
+è((šode)->
+i_æags
+ & 
+S_PRIVATE
+)
+
+	)
+
+308 
+	#IS_AUTOMOUNT
+(
+šode
+è((šode)->
+i_æags
+ & 
+S_AUTOMOUNT
+)
+
+	)
+
+309 
+	#IS_AOP_EXT
+(
+šode
+è((šode)->
+i_æags
+ & 
+S_AOP_EXT
+)
+
+	)
+
+314 
+	#BLKROSET
+ 
+	`_IO
+(0x12,93è
+
+	)
+
+315 
+	#BLKROGET
+ 
+	`_IO
+(0x12,94è
+
+	)
+
+316 
+	#BLKRRPART
+ 
+	`_IO
+(0x12,95è
+
+	)
+
+317 
+	#BLKGETSIZE
+ 
+	`_IO
+(0x12,96è
+
+	)
+
+318 
+	#BLKFLSBUF
+ 
+	`_IO
+(0x12,97è
+
+	)
+
+319 
+	#BLKRASET
+ 
+	`_IO
+(0x12,98è
+
+	)
+
+320 
+	#BLKRAGET
+ 
+	`_IO
+(0x12,99è
+
+	)
+
+321 
+	#BLKFRASET
+ 
+	`_IO
+(0x12,100)
+
+	)
+
+322 
+	#BLKFRAGET
+ 
+	`_IO
+(0x12,101)
+
+	)
+
+323 
+	#BLKSECTSET
+ 
+	`_IO
+(0x12,102)
+
+	)
+
+324 
+	#BLKSECTGET
+ 
+	`_IO
+(0x12,103)
+
+	)
+
+325 
+	#BLKSSZGET
+ 
+	`_IO
+(0x12,104)
+
+	)
+
+327 
+	#BLKPG
+ 
+	`_IO
+(0x12,105)
+
+	)
+
+331 
+	#BLKELVGET
+ 
+	`_IOR
+(0x12,106,
+size_t
+)
+
+	)
+
+332 
+	#BLKELVSET
+ 
+	`_IOW
+(0x12,107,
+size_t
+)
+
+	)
+
+337 
+	#BLKBSZGET
+ 
+	`_IOR
+(0x12,112,
+size_t
+)
+
+	)
+
+338 
+	#BLKBSZSET
+ 
+	`_IOW
+(0x12,113,
+size_t
+)
+
+	)
+
+339 
+	#BLKGETSIZE64
+ 
+	`_IOR
+(0x12,114,
+size_t
+è
+
+	)
+
+340 
+	#BLKTRACESETUP
+ 
+	`_IOWR
+(0x12,115,
+blk_u£r_Œaû_£tup
+)
+
+	)
+
+341 
+	#BLKTRACESTART
+ 
+	`_IO
+(0x12,116)
+
+	)
+
+342 
+	#BLKTRACESTOP
+ 
+	`_IO
+(0x12,117)
+
+	)
+
+343 
+	#BLKTRACETEARDOWN
+ 
+	`_IO
+(0x12,118)
+
+	)
+
+344 
+	#BLKDISCARD
+ 
+	`_IO
+(0x12,119)
+
+	)
+
+345 
+	#BLKIOMIN
+ 
+	`_IO
+(0x12,120)
+
+	)
+
+346 
+	#BLKIOOPT
+ 
+	`_IO
+(0x12,121)
+
+	)
+
+347 
+	#BLKALIGNOFF
+ 
+	`_IO
+(0x12,122)
+
+	)
+
+348 
+	#BLKPBSZGET
+ 
+	`_IO
+(0x12,123)
+
+	)
+
+349 
+	#BLKDISCARDZEROES
+ 
+	`_IO
+(0x12,124)
+
+	)
+
+351 
+	#BMAP_IOCTL
+ 1
+
+	)
+
+352 
+	#FIBMAP
+ 
+	`_IO
+(0x00,1è
+
+	)
+
+353 
+	#FIGETBSZ
+ 
+	`_IO
+(0x00,2è
+
+	)
+
+354 
+	#FIFREEZE
+ 
+	`_IOWR
+('X', 119, è
+
+	)
+
+355 
+	#FITHAW
+ 
+	`_IOWR
+('X', 120, è
+
+	)
+
+356 
+	#FITRIM
+ 
+	`_IOWR
+('X', 121, 
+f¡rim_¿nge
+è
+
+	)
+
+358 
+	#FS_IOC_GETFLAGS
+ 
+	`_IOR
+('f', 1, )
+
+	)
+
+359 
+	#FS_IOC_SETFLAGS
+ 
+	`_IOW
+('f', 2, )
+
+	)
+
+360 
+	#FS_IOC_GETVERSION
+ 
+	`_IOR
+('v', 1, )
+
+	)
+
+361 
+	#FS_IOC_SETVERSION
+ 
+	`_IOW
+('v', 2, )
+
+	)
+
+362 
+	#FS_IOC_FIEMAP
+ 
+	`_IOWR
+('f', 11, 
+f›m­
+)
+
+	)
+
+363 
+	#FS_IOC32_GETFLAGS
+ 
+	`_IOR
+('f', 1, )
+
+	)
+
+364 
+	#FS_IOC32_SETFLAGS
+ 
+	`_IOW
+('f', 2, )
+
+	)
+
+365 
+	#FS_IOC32_GETVERSION
+ 
+	`_IOR
+('v', 1, )
+
+	)
+
+366 
+	#FS_IOC32_SETVERSION
+ 
+	`_IOW
+('v', 2, )
+
+	)
+
+371 
+	#FS_SECRM_FL
+ 0x00000001
+
+	)
+
+372 
+	#FS_UNRM_FL
+ 0x00000002
+
+	)
+
+373 
+	#FS_COMPR_FL
+ 0x00000004
+
+	)
+
+374 
+	#FS_SYNC_FL
+ 0x00000008
+
+	)
+
+375 
+	#FS_IMMUTABLE_FL
+ 0x00000010
+
+	)
+
+376 
+	#FS_APPEND_FL
+ 0x00000020
+
+	)
+
+377 
+	#FS_NODUMP_FL
+ 0x00000040
+
+	)
+
+378 
+	#FS_NOATIME_FL
+ 0x00000080
+
+	)
+
+380 
+	#FS_DIRTY_FL
+ 0x00000100
+
+	)
+
+381 
+	#FS_COMPRBLK_FL
+ 0x00000200
+
+	)
+
+382 
+	#FS_NOCOMP_FL
+ 0x00000400
+
+	)
+
+383 
+	#FS_ECOMPR_FL
+ 0x00000800
+
+	)
+
+385 
+	#FS_BTREE_FL
+ 0x00001000
+
+	)
+
+386 
+	#FS_INDEX_FL
+ 0x00001000
+
+	)
+
+387 
+	#FS_IMAGIC_FL
+ 0x00002000
+
+	)
+
+388 
+	#FS_JOURNAL_DATA_FL
+ 0x00004000
+
+	)
+
+389 
+	#FS_NOTAIL_FL
+ 0x00008000
+
+	)
+
+390 
+	#FS_DIRSYNC_FL
+ 0x00010000
+
+	)
+
+391 
+	#FS_TOPDIR_FL
+ 0x00020000
+
+	)
+
+392 
+	#FS_EXTENT_FL
+ 0x00080000
+
+	)
+
+393 
+	#FS_DIRECTIO_FL
+ 0x00100000
+
+	)
+
+394 
+	#FS_NOCOW_FL
+ 0x00800000
+
+	)
+
+395 
+	#FS_RESERVED_FL
+ 0x80000000
+
+	)
+
+397 
+	#FS_FL_USER_VISIBLE
+ 0x0003DFFF
+
+	)
+
+398 
+	#FS_FL_USER_MODIFIABLE
+ 0x000380FF
+
+	)
+
+401 
+	#SYNC_FILE_RANGE_WAIT_BEFORE
+ 1
+
+	)
+
+402 
+	#SYNC_FILE_RANGE_WRITE
+ 2
+
+	)
+
+403 
+	#SYNC_FILE_RANGE_WAIT_AFTER
+ 4
+
+	)
+
+	@/usr/include/linux/kernel.h
+
+1 #iâdeà
+_LINUX_KERNEL_H
+
+
+2 
+	#_LINUX_KERNEL_H
+
+
+	)
+
+10 
+	#SI_LOAD_SHIFT
+ 16
+
+	)
+
+11 
+	ssysšfo
+ {
+
+12 
+	mu±ime
+;
+
+13 
+	mlßds
+[3];
+
+14 
+	mtÙ®¿m
+;
+
+15 
+	mä“¿m
+;
+
+16 
+	msh¬ed¿m
+;
+
+17 
+	mbufã¼am
+;
+
+18 
+	mtÙ®sw­
+;
+
+19 
+	mä“sw­
+;
+
+20 
+	m´ocs
+;
+
+21 
+	m·d
+;
+
+22 
+	mtÙ®high
+;
+
+23 
+	mä“high
+;
+
+24 
+	mmem_un™
+;
+
+25 
+	m_f
+[20-2*()-()];
+
+29 
+	#BUILD_BUG_ON
+(
+cÚd™iÚ
+è(()
+	`BUILD_BUG_ON_ZERO
+(cÚd™iÚ))
+
+	)
+
+32 
+	#MAYBE_BUILD_BUG_ON
+(
+cÚd
+è(()([1 - 2 * !!(cÚd)]))
+
+	)
+
+35 
+	#BUILD_BUG_ON_NOT_POWER_OF_2
+(
+n
+) \
+
+36 
+	`BUILD_BUG_ON
+((
+n
+è=ð0 || ((Òè& (Òè- 1)è!ð0))
+
+	)
+
+42 
+	#BUILD_BUG_ON_ZERO
+(
+e
+è((¡ruù { :-!!Ó); }))
+
+	)
+
+43 
+	#BUILD_BUG_ON_NULL
+(
+e
+è((*)(¡ruù { :-!!Ó); }))
+
+	)
+
+46 
+	#__FUNCTION__
+ (
+__func__
+)
+
+	)
+
+49 #ifdeà
+CONFIG_NUMA
+
+
+50 
+	#NUMA_BUILD
+ 1
+
+	)
+
+52 
+	#NUMA_BUILD
+ 0
+
+	)
+
+56 #ifdeà
+CONFIG_COMPACTION
+
+
+57 
+	#COMPACTION_BUILD
+ 1
+
+	)
+
+59 
+	#COMPACTION_BUILD
+ 0
+
+	)
+
+63 #ifdeà
+CONFIG_FTRACE_MCOUNT_RECORD
+
+
+64 
+	#REBUILD_DUE_TO_FTRACE_MCOUNT_RECORD
+
+
+	)
+
+67 
+	gmoduË
+;
+
+69 
+m¬k_h¬dw¬e_unsuµÜ‹d
+(cÚ¡ *
+msg
+);
+
+70 
+m¬k_‹ch_´ev›w
+(cÚ¡ *
+msg
+, 
+moduË
+ *
+mod
+);
+
+	@/usr/include/linux/blk_types.h
+
+5 #iâdeà
+__LINUX_BLK_TYPES_H
+
+
+6 
+	#__LINUX_BLK_TYPES_H
+
+
+	)
+
+8 #ifdeà
+CONFIG_BLOCK
+
+
+10 
+	~<lšux/ty³s.h
+>
+
+15 
+	#BIO_UPTODATE
+ 0
+
+	)
+
+16 
+	#BIO_RW_BLOCK
+ 1
+
+	)
+
+17 
+	#BIO_EOF
+ 2
+
+	)
+
+18 
+	#BIO_SEG_VALID
+ 3
+
+	)
+
+19 
+	#BIO_CLONED
+ 4
+
+	)
+
+20 
+	#BIO_BOUNCED
+ 5
+
+	)
+
+21 
+	#BIO_USER_MAPPED
+ 6
+
+	)
+
+22 
+	#BIO_EOPNOTSUPP
+ 7
+
+	)
+
+23 
+	#BIO_CPU_AFFINE
+ 8
+
+	)
+
+24 
+	#BIO_NULL_MAPPED
+ 9
+
+	)
+
+25 
+	#BIO_FS_INTEGRITY
+ 10
+
+	)
+
+26 
+	#BIO_QUIET
+ 11
+
+	)
+
+27 
+	#BIO_MAPPED_INTEGRITY
+ 12
+
+	)
+
+28 
+	#bio_æagged
+(
+bio
+, 
+æag
+è((bio)->
+bi_æags
+ & (1 << (æag)))
+
+	)
+
+33 
+	#BIO_POOL_BITS
+ (4)
+
+	)
+
+34 
+	#BIO_POOL_NONE
+ ((1UL << 
+BIO_POOL_BITS
+è- 1)
+
+	)
+
+35 
+	#BIO_POOL_OFFSET
+ (
+BITS_PER_LONG
+ - 
+BIO_POOL_BITS
+)
+
+	)
+
+36 
+	#BIO_POOL_MASK
+ (1UL << 
+BIO_POOL_OFFSET
+)
+
+	)
+
+37 
+	#BIO_POOL_IDX
+(
+bio
+è((bio)->
+bi_æags
+ >> 
+BIO_POOL_OFFSET
+)
+
+	)
+
+68 
+	ebio_rw_æags
+ {
+
+69 
+	mBIO_RW
+,
+
+70 
+	mBIO_RW_FAILFAST_DEV
+,
+
+71 
+	mBIO_RW_FAILFAST_TRANSPORT
+,
+
+72 
+	mBIO_RW_FAILFAST_DRIVER
+,
+
+74 
+	mBIO_RW_AHEAD
+,
+
+75 
+	mBIO_RW_BARRIER
+,
+
+76 
+	mBIO_RW_SYNCIO
+,
+
+77 
+	mBIO_RW_UNPLUG
+,
+
+78 
+	mBIO_RW_META
+,
+
+79 
+	mBIO_RW_DISCARD
+,
+
+80 
+	mBIO_RW_NOIDLE
+,
+
+85 
+	mBIO_RW_FLUSH
+,
+
+86 
+	mBIO_RW_FUA
+,
+
+91 
+	mBIO_RW_THROTTLED
+,
+
+94 
+	#BIO_FLUSH
+ (1 << 
+BIO_RW_FLUSH
+)
+
+	)
+
+95 
+	#BIO_FUA
+ (1 << 
+BIO_RW_FUA
+)
+
+	)
+
+96 
+	#BIO_DISCARD
+ (1 << 
+BIO_RW_DISCARD
+)
+
+	)
+
+99 
+	#BIO_NOMERGE_FLAGS
+ \
+
+100 ((1 << 
+BIO_RW_BARRIER
+è| 
+BIO_FLUSH
+ | 
+BIO_FUA
+)
+
+	)
+
+105 
+	erq_æag_b™s
+ {
+
+106 
+	m__REQ_WRITE
+,
+
+107 
+	m__REQ_FAILFAST_DEV
+,
+
+108 
+	m__REQ_FAILFAST_TRANSPORT
+,
+
+109 
+	m__REQ_FAILFAST_DRIVER
+,
+
+111 
+	m__REQ_DISCARD
+,
+
+112 
+	m__REQ_SORTED
+,
+
+113 
+	m__REQ_SOFTBARRIER
+,
+
+114 
+	m__REQ_HARDBARRIER
+,
+
+115 
+	m__REQ_FUA
+,
+
+116 
+	m__REQ_NOMERGE
+,
+
+117 
+	m__REQ_STARTED
+,
+
+118 
+	m__REQ_DONTPREP
+,
+
+119 
+	m__REQ_QUEUED
+,
+
+120 
+	m__REQ_ELVPRIV
+,
+
+121 
+	m__REQ_FAILED
+,
+
+122 
+	m__REQ_QUIET
+,
+
+123 
+	m__REQ_PREEMPT
+,
+
+124 
+	m__REQ_ORDERED_COLOR
+,
+
+125 
+	m__REQ_SYNC
+,
+
+126 
+	m__REQ_ALLOCED
+,
+
+127 
+	m__REQ_META
+,
+
+128 
+	m__REQ_COPY_USER
+,
+
+129 
+	m__REQ_INTEGRITY
+,
+
+130 
+	m__REQ_NOIDLE
+,
+
+131 
+	m__REQ_IO_STAT
+,
+
+132 
+	m__REQ_MIXED_MERGE
+,
+
+133 
+	m__REQ_FLUSH
+,
+
+134 
+	m__REQ_FLUSH_SEQ
+,
+
+135 
+	m__REQ_NR_BITS
+,
+
+138 
+	#REQ_WRITE
+ (1 << 
+__REQ_WRITE
+)
+
+	)
+
+139 
+	#REQ_RW
+ 
+REQ_WRITE
+
+
+	)
+
+141 
+	#REQ_FAILFAST_DEV
+ (1 << 
+__REQ_FAILFAST_DEV
+)
+
+	)
+
+142 
+	#REQ_FAILFAST_TRANSPORT
+ (1 << 
+__REQ_FAILFAST_TRANSPORT
+)
+
+	)
+
+143 
+	#REQ_FAILFAST_DRIVER
+ (1 << 
+__REQ_FAILFAST_DRIVER
+)
+
+	)
+
+144 
+	#REQ_HARDBARRIER
+ (1 << 
+__REQ_HARDBARRIER
+)
+
+	)
+
+146 
+	#REQ_SYNC
+ (1 << 
+__REQ_SYNC
+)
+
+	)
+
+147 
+	#REQ_RW_SYNC
+ 
+REQ_SYNC
+
+
+	)
+
+149 
+	#REQ_META
+ (1 << 
+__REQ_META
+)
+
+	)
+
+150 
+	#REQ_RW_META
+ 
+REQ_META
+
+
+	)
+
+152 
+	#REQ_DISCARD
+ (1 << 
+__REQ_DISCARD
+)
+
+	)
+
+153 
+	#REQ_NOIDLE
+ (1 << 
+__REQ_NOIDLE
+)
+
+	)
+
+155 
+	#REQ_FAILFAST_MASK
+ \
+
+156 (
+REQ_FAILFAST_DEV
+ | 
+REQ_FAILFAST_TRANSPORT
+ | 
+REQ_FAILFAST_DRIVER
+)
+
+	)
+
+157 
+	#REQ_COMMON_MASK
+ \
+
+158 (
+REQ_WRITE
+ | 
+REQ_FAILFAST_MASK
+ | 
+REQ_HARDBARRIER
+ | 
+REQ_SYNC
+ | \
+
+159 
+REQ_META
+ | 
+REQ_DISCARD
+ | 
+REQ_NOIDLE
+ | 
+REQ_FLUSH
+ | 
+REQ_FUA
+)
+
+	)
+
+160 
+	#REQ_CLONE_MASK
+ 
+REQ_COMMON_MASK
+
+
+	)
+
+163 
+	#REQ_NOMERGE_FLAGS
+ \
+
+164 (
+REQ_NOMERGE
+ | 
+REQ_STARTED
+ | 
+REQ_HARDBARRIER
+ | 
+REQ_SOFTBARRIER
+ | 
+REQ_FLUSH
+ | 
+REQ_FUA
+)
+
+	)
+
+166 
+	#REQ_SORTED
+ (1 << 
+__REQ_SORTED
+)
+
+	)
+
+167 
+	#REQ_SOFTBARRIER
+ (1 << 
+__REQ_SOFTBARRIER
+)
+
+	)
+
+168 
+	#REQ_FUA
+ (1 << 
+__REQ_FUA
+)
+
+	)
+
+169 
+	#REQ_NOMERGE
+ (1 << 
+__REQ_NOMERGE
+)
+
+	)
+
+170 
+	#REQ_STARTED
+ (1 << 
+__REQ_STARTED
+)
+
+	)
+
+171 
+	#REQ_DONTPREP
+ (1 << 
+__REQ_DONTPREP
+)
+
+	)
+
+172 
+	#REQ_QUEUED
+ (1 << 
+__REQ_QUEUED
+)
+
+	)
+
+173 
+	#REQ_ELVPRIV
+ (1 << 
+__REQ_ELVPRIV
+)
+
+	)
+
+174 
+	#REQ_FAILED
+ (1 << 
+__REQ_FAILED
+)
+
+	)
+
+175 
+	#REQ_QUIET
+ (1 << 
+__REQ_QUIET
+)
+
+	)
+
+176 
+	#REQ_PREEMPT
+ (1 << 
+__REQ_PREEMPT
+)
+
+	)
+
+177 
+	#REQ_ORDERED_COLOR
+ (1 << 
+__REQ_ORDERED_COLOR
+è
+
+	)
+
+178 
+	#REQ_ALLOCED
+ (1 << 
+__REQ_ALLOCED
+)
+
+	)
+
+179 
+	#REQ_COPY_USER
+ (1 << 
+__REQ_COPY_USER
+)
+
+	)
+
+180 
+	#REQ_INTEGRITY
+ (1 << 
+__REQ_INTEGRITY
+)
+
+	)
+
+181 
+	#REQ_FLUSH
+ (1 << 
+__REQ_FLUSH
+)
+
+	)
+
+182 
+	#REQ_FLUSH_SEQ
+ (1 << 
+__REQ_FLUSH_SEQ
+)
+
+	)
+
+183 
+	#REQ_IO_STAT
+ (1 << 
+__REQ_IO_STAT
+)
+
+	)
+
+184 
+	#REQ_MIXED_MERGE
+ (1 << 
+__REQ_MIXED_MERGE
+)
+
+	)
+
+186 
+	#REQ_WRITE_FLUSH
+ (
+REQ_WRITE
+ | 
+REQ_SYNC
+ | 
+REQ_NOIDLE
+ | 
+REQ_FLUSH
+)
+
+	)
+
+	@/usr/include/linux/ioctl.h
+
+1 #iâdeà
+_LINUX_IOCTL_H
+
+
+2 
+	#_LINUX_IOCTL_H
+
+
+	)
+
+4 
+	~<asm/ioùl.h
+>
+
+	@/usr/include/linux/limits.h
+
+1 #iâdeà
+_LINUX_LIMITS_H
+
+
+2 
+	#_LINUX_LIMITS_H
+
+
+	)
+
+4 
+	#NR_OPEN
+ 1024
+
+	)
+
+6 
+	#NGROUPS_MAX
+ 65536
+
+	)
+
+7 
+	#ARG_MAX
+ 131072
+
+	)
+
+8 
+	#LINK_MAX
+ 127
+
+	)
+
+9 
+	#MAX_CANON
+ 255
+
+	)
+
+10 
+	#MAX_INPUT
+ 255
+
+	)
+
+11 
+	#NAME_MAX
+ 255
+
+	)
+
+12 
+	#PATH_MAX
+ 4096
+
+	)
+
+13 
+	#PIPE_BUF
+ 4096
+
+	)
+
+14 
+	#XATTR_NAME_MAX
+ 255
+
+	)
+
+15 
+	#XATTR_SIZE_MAX
+ 65536
+
+	)
+
+16 
+	#XATTR_LIST_MAX
+ 65536
+
+	)
+
+18 
+	#RTSIG_MAX
+ 32
+
+	)
+
+	@/usr/include/linux/types.h
+
+1 #iâdeà
+_LINUX_TYPES_H
+
+
+2 
+	#_LINUX_TYPES_H
+
+
+	)
+
+4 
+	~<asm/ty³s.h
+>
+
+6 #iâdeà
+__ASSEMBLY__
+
+
+8 
+	~<lšux/posix_ty³s.h
+>
+
+16 #ifdeà
+__CHECKER__
+
+
+17 
+	#__b™wi£__
+ 
+	`__©Œibu‹__
+((
+b™wi£
+))
+
+	)
+
+19 
+	#__b™wi£__
+
+
+	)
+
+21 #ifdeà
+__CHECK_ENDIAN__
+
+
+22 
+	#__b™wi£
+ 
+__b™wi£__
+
+
+	)
+
+24 
+	#__b™wi£
+
+
+	)
+
+27 
+__u16
+ 
+	t__b™wi£
+ 
+	t__Ë16
+;
+
+28 
+__u16
+ 
+	t__b™wi£
+ 
+	t__be16
+;
+
+29 
+__u32
+ 
+	t__b™wi£
+ 
+	t__Ë32
+;
+
+30 
+__u32
+ 
+	t__b™wi£
+ 
+	t__be32
+;
+
+31 
+__u64
+ 
+	t__b™wi£
+ 
+	t__Ë64
+;
+
+32 
+__u64
+ 
+	t__b™wi£
+ 
+	t__be64
+;
+
+34 
+__u16
+ 
+	t__b™wi£
+ 
+	t__sum16
+;
+
+35 
+__u32
+ 
+	t__b™wi£
+ 
+	t__wsum
+;
+
+38 
+	#__®igÃd_u64
+ 
+__u64
+ 
+	`__©Œibu‹__
+((
+	`®igÃd
+(8)))
+
+	)
+
+39 
+	#__®igÃd_be64
+ 
+__be64
+ 
+	`__©Œibu‹__
+((
+	`®igÃd
+(8)))
+
+	)
+
+40 
+	#__®igÃd_Ë64
+ 
+__Ë64
+ 
+	`__©Œibu‹__
+((
+	`®igÃd
+(8)))
+
+	)
+
+	@/usr/include/asm/ioctl.h
+
+1 
+	~<asm-g’”ic/ioùl.h
+>
+
+	@/usr/include/asm/types.h
+
+1 #iâdeà
+_ASM_X86_TYPES_H
+
+
+2 
+	#_ASM_X86_TYPES_H
+
+
+	)
+
+4 
+	~<asm-g’”ic/ty³s.h
+>
+
+	@/usr/include/linux/posix_types.h
+
+1 #iâdeà
+_LINUX_POSIX_TYPES_H
+
+
+2 
+	#_LINUX_POSIX_TYPES_H
+
+
+	)
+
+4 
+	~<lšux/¡ddef.h
+>
+
+21 #undeà
+__NFDBITS
+
+
+22 
+	#__NFDBITS
+ (8 * ())
+
+	)
+
+24 #undeà
+__FD_SETSIZE
+
+
+25 
+	#__FD_SETSIZE
+ 1024
+
+	)
+
+27 #undeà
+__FDSET_LONGS
+
+
+28 
+	#__FDSET_LONGS
+ (
+__FD_SETSIZE
+/
+__NFDBITS
+)
+
+	)
+
+30 #undeà
+__FDELT
+
+
+31 
+	#__FDELT
+(
+d
+è((dè/ 
+__NFDBITS
+)
+
+	)
+
+33 #undeà
+__FDMASK
+
+
+34 
+	#__FDMASK
+(
+d
+è(1UL << ((dè% 
+__NFDBITS
+))
+
+	)
+
+37 
+	mfds_b™s
+ [
+__FDSET_LONGS
+];
+
+38 } 
+	t__k”Ãl_fd_£t
+;
+
+41 (*
+	t__k”Ãl_sighªdËr_t
+)();
+
+44 
+	t__k”Ãl_key_t
+;
+
+45 
+	t__k”Ãl_mqd_t
+;
+
+47 
+	~<asm/posix_ty³s.h
+>
+
+	@/usr/include/asm-generic/ioctl.h
+
+1 #iâdeà
+_ASM_GENERIC_IOCTL_H
+
+
+2 
+	#_ASM_GENERIC_IOCTL_H
+
+
+	)
+
+22 
+	#_IOC_NRBITS
+ 8
+
+	)
+
+23 
+	#_IOC_TYPEBITS
+ 8
+
+	)
+
+30 #iâdeà
+_IOC_SIZEBITS
+
+
+31 
+	#_IOC_SIZEBITS
+ 14
+
+	)
+
+34 #iâdeà
+_IOC_DIRBITS
+
+
+35 
+	#_IOC_DIRBITS
+ 2
+
+	)
+
+38 
+	#_IOC_NRMASK
+ ((1 << 
+_IOC_NRBITS
+)-1)
+
+	)
+
+39 
+	#_IOC_TYPEMASK
+ ((1 << 
+_IOC_TYPEBITS
+)-1)
+
+	)
+
+40 
+	#_IOC_SIZEMASK
+ ((1 << 
+_IOC_SIZEBITS
+)-1)
+
+	)
+
+41 
+	#_IOC_DIRMASK
+ ((1 << 
+_IOC_DIRBITS
+)-1)
+
+	)
+
+43 
+	#_IOC_NRSHIFT
+ 0
+
+	)
+
+44 
+	#_IOC_TYPESHIFT
+ (
+_IOC_NRSHIFT
++
+_IOC_NRBITS
+)
+
+	)
+
+45 
+	#_IOC_SIZESHIFT
+ (
+_IOC_TYPESHIFT
++
+_IOC_TYPEBITS
+)
+
+	)
+
+46 
+	#_IOC_DIRSHIFT
+ (
+_IOC_SIZESHIFT
++
+_IOC_SIZEBITS
+)
+
+	)
+
+53 #iâdeà
+_IOC_NONE
+
+
+54 
+	#_IOC_NONE
+ 0U
+
+	)
+
+57 #iâdeà
+_IOC_WRITE
+
+
+58 
+	#_IOC_WRITE
+ 1U
+
+	)
+
+61 #iâdeà
+_IOC_READ
+
+
+62 
+	#_IOC_READ
+ 2U
+
+	)
+
+65 
+	#_IOC
+(
+dœ
+,
+ty³
+,
+Ä
+,
+size
+) \
+
+66 (((
+dœ
+è<< 
+_IOC_DIRSHIFT
+) | \
+
+67 ((
+ty³
+è<< 
+_IOC_TYPESHIFT
+) | \
+
+68 ((
+Ä
+è<< 
+_IOC_NRSHIFT
+) | \
+
+69 ((
+size
+è<< 
+_IOC_SIZESHIFT
+))
+
+	)
+
+71 
+	#_IOC_TYPECHECK
+(
+t
+è(Ñ))
+
+	)
+
+74 
+	#_IO
+(
+ty³
+,
+Ä
+è
+	`_IOC
+(
+_IOC_NONE
+,Ñy³),Òr),0)
+
+	)
+
+75 
+	#_IOR
+(
+ty³
+,
+Ä
+,
+size
+è
+	`_IOC
+(
+_IOC_READ
+,Ñy³),Òr),(
+	`_IOC_TYPECHECK
+(size)))
+
+	)
+
+76 
+	#_IOW
+(
+ty³
+,
+Ä
+,
+size
+è
+	`_IOC
+(
+_IOC_WRITE
+,Ñy³),Òr),(
+	`_IOC_TYPECHECK
+(size)))
+
+	)
+
+77 
+	#_IOWR
+(
+ty³
+,
+Ä
+,
+size
+è
+	`_IOC
+(
+_IOC_READ
+|
+_IOC_WRITE
+,Ñy³),Òr),(
+	`_IOC_TYPECHECK
+(size)))
+
+	)
+
+78 
+	#_IOR_BAD
+(
+ty³
+,
+Ä
+,
+size
+è
+	`_IOC
+(
+_IOC_READ
+,Ñy³),Òr),(size))
+
+	)
+
+79 
+	#_IOW_BAD
+(
+ty³
+,
+Ä
+,
+size
+è
+	`_IOC
+(
+_IOC_WRITE
+,Ñy³),Òr),(size))
+
+	)
+
+80 
+	#_IOWR_BAD
+(
+ty³
+,
+Ä
+,
+size
+è
+	`_IOC
+(
+_IOC_READ
+|
+_IOC_WRITE
+,Ñy³),Òr),(size))
+
+	)
+
+83 
+	#_IOC_DIR
+(
+Ä
+è((Òrè>> 
+_IOC_DIRSHIFT
+è& 
+_IOC_DIRMASK
+)
+
+	)
+
+84 
+	#_IOC_TYPE
+(
+Ä
+è((Òrè>> 
+_IOC_TYPESHIFT
+è& 
+_IOC_TYPEMASK
+)
+
+	)
+
+85 
+	#_IOC_NR
+(
+Ä
+è((Òrè>> 
+_IOC_NRSHIFT
+è& 
+_IOC_NRMASK
+)
+
+	)
+
+86 
+	#_IOC_SIZE
+(
+Ä
+è((Òrè>> 
+_IOC_SIZESHIFT
+è& 
+_IOC_SIZEMASK
+)
+
+	)
+
+90 
+	#IOC_IN
+ (
+_IOC_WRITE
+ << 
+_IOC_DIRSHIFT
+)
+
+	)
+
+91 
+	#IOC_OUT
+ (
+_IOC_READ
+ << 
+_IOC_DIRSHIFT
+)
+
+	)
+
+92 
+	#IOC_INOUT
+ ((
+_IOC_WRITE
+|
+_IOC_READ
+è<< 
+_IOC_DIRSHIFT
+)
+
+	)
+
+93 
+	#IOCSIZE_MASK
+ (
+_IOC_SIZEMASK
+ << 
+_IOC_SIZESHIFT
+)
+
+	)
+
+94 
+	#IOCSIZE_SHIFT
+ (
+_IOC_SIZESHIFT
+)
+
+	)
+
+	@/usr/include/asm-generic/types.h
+
+1 #iâdeà
+_ASM_GENERIC_TYPES_H
+
+
+2 
+	#_ASM_GENERIC_TYPES_H
+
+
+	)
+
+7 
+	~<asm-g’”ic/št-Î64.h
+>
+
+9 #iâdeà
+__ASSEMBLY__
+
+
+11 
+	tumode_t
+;
+
+	@/usr/include/asm/posix_types.h
+
+1 #ifdeà
+__i386__
+
+
+2 
+	~"posix_ty³s_32.h
+"
+
+4 
+	~"posix_ty³s_64.h
+"
+
+	@/usr/include/linux/stddef.h
+
+1 #iâdeà
+_LINUX_STDDEF_H
+
+
+2 
+	#_LINUX_STDDEF_H
+
+
+	)
+
+6 #undeà
+NULL
+
+
+7 #ià
+defšed
+(
+__ýlu¥lus
+)
+
+8 
+	#NULL
+ 0
+
+	)
+
+10 
+	#NULL
+ ((*)0)
+
+	)
+
+	@/usr/include/asm-generic/int-ll64.h
+
+8 #iâdeà
+_ASM_GENERIC_INT_LL64_H
+
+
+9 
+	#_ASM_GENERIC_INT_LL64_H
+
+
+	)
+
+11 
+	~<asm/b™¥”lÚg.h
+>
+
+13 #iâdeà
+__ASSEMBLY__
+
+
+19 
+__sigÃd__
+ 
+	t__s8
+;
+
+20 
+	t__u8
+;
+
+22 
+__sigÃd__
+ 
+	t__s16
+;
+
+23 
+	t__u16
+;
+
+25 
+__sigÃd__
+ 
+	t__s32
+;
+
+26 
+	t__u32
+;
+
+28 #ifdeà
+__GNUC__
+
+
+29 
+__ex‹nsiÚ__
+ 
+__sigÃd__
+ 
+	t__s64
+;
+
+30 
+__ex‹nsiÚ__
+ 
+	t__u64
+;
+
+32 
+__sigÃd__
+ 
+	t__s64
+;
+
+33 
+	t__u64
+;
+
+	@/usr/include/asm/bitsperlong.h
+
+1 #iâdeà
+__ASM_X86_BITSPERLONG_H
+
+
+2 
+	#__ASM_X86_BITSPERLONG_H
+
+
+	)
+
+4 #ifdeà
+__x86_64__
+
+
+5 
+	#__BITS_PER_LONG
+ 64
+
+	)
+
+7 
+	#__BITS_PER_LONG
+ 32
+
+	)
+
+10 
+	~<asm-g’”ic/b™¥”lÚg.h
+>
+
+	@/usr/include/asm-generic/bitsperlong.h
+
+1 #iâdeà
+__ASM_GENERIC_BITS_PER_LONG
+
+
+2 
+	#__ASM_GENERIC_BITS_PER_LONG
+
+
+	)
+
+11 #iâdeà
+__BITS_PER_LONG
+
+
+12 
+	#__BITS_PER_LONG
+ 32
+
+	)
+
+	@
+1
+.
+1
+/usr/include
+18
+499
+mymsg.c
+mymsg.mod.c
+/usr/include/linux/fs.h
+/usr/include/linux/kernel.h
+/usr/include/linux/blk_types.h
+/usr/include/linux/ioctl.h
+/usr/include/linux/limits.h
+/usr/include/linux/types.h
+/usr/include/asm/ioctl.h
+/usr/include/asm/types.h
+/usr/include/linux/posix_types.h
+/usr/include/asm-generic/ioctl.h
+/usr/include/asm-generic/types.h
+/usr/include/asm/posix_types.h
+/usr/include/linux/stddef.h
+/usr/include/asm-generic/int-ll64.h
+/usr/include/asm/bitsperlong.h
+/usr/include/asm-generic/bitsperlong.h

@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+GLOBALMEM_MAJOR	globalmem_two.c	23;"	d	file:
+GLOBALMEM_SIZE	globalmem_two.c	21;"	d	file:
+MEM_CLEAR	globalmem_two.c	22;"	d	file:
+cdev	globalmem_two.c	/^	struct cdev cdev; \/*cdev结构体*\/                       $/;"	m	struct:globalmem_dev	typeref:struct:globalmem_dev::cdev	file:	access:public
+globalmem_dev	globalmem_two.c	/^struct globalmem_dev                                     $/;"	s	file:
+globalmem_dev::cdev	globalmem_two.c	/^	struct cdev cdev; \/*cdev结构体*\/                       $/;"	m	struct:globalmem_dev	typeref:struct:globalmem_dev::cdev	file:	access:public
+globalmem_dev::mem	globalmem_two.c	/^	unsigned char mem[GLOBALMEM_SIZE]; \/*全局内存*\/        $/;"	m	struct:globalmem_dev	file:	access:public
+globalmem_devp	globalmem_two.c	/^struct globalmem_dev *globalmem_devp; \/*设备结构体指针*\/$/;"	v	typeref:struct:globalmem_dev
+globalmem_exit	globalmem_two.c	/^module_exit(globalmem_exit);$/;"	v
+globalmem_exit	globalmem_two.c	/^void globalmem_exit(void)$/;"	f	signature:(void)
+globalmem_fops	globalmem_two.c	/^static const struct file_operations globalmem_fops =$/;"	v	typeref:struct:file_operations	file:
+globalmem_init	globalmem_two.c	/^int globalmem_init(void)$/;"	f	signature:(void)
+globalmem_init	globalmem_two.c	/^module_init(globalmem_init);$/;"	v
+globalmem_ioctl	globalmem_two.c	/^static int globalmem_ioctl(struct inode *inodep, struct file *filp, unsigned$/;"	f	file:	signature:(struct inode *inodep, struct file *filp, unsigned int cmd, unsigned long arg)
+globalmem_llseek	globalmem_two.c	/^static loff_t globalmem_llseek(struct file *filp, loff_t offset, int orig)$/;"	f	file:	signature:(struct file *filp, loff_t offset, int orig)
+globalmem_major	globalmem_two.c	/^static globalmem_major = GLOBALMEM_MAJOR;$/;"	v	file:
+globalmem_open	globalmem_two.c	/^int globalmem_open(struct inode *inode, struct file *filp)$/;"	f	signature:(struct inode *inode, struct file *filp)
+globalmem_read	globalmem_two.c	/^static ssize_t globalmem_read(struct file *filp, char __user *buf, size_t size,$/;"	f	file:	signature:(struct file *filp, char __user *buf, size_t size, loff_t *ppos)
+globalmem_release	globalmem_two.c	/^int globalmem_release(struct inode *inode, struct file *filp)$/;"	f	signature:(struct inode *inode, struct file *filp)
+globalmem_setup_cdev	globalmem_two.c	/^static void globalmem_setup_cdev(struct globalmem_dev *dev, int index)$/;"	f	file:	signature:(struct globalmem_dev *dev, int index)
+globalmem_write	globalmem_two.c	/^static ssize_t globalmem_write(struct file *filp, const char __user *buf,$/;"	f	file:	signature:(struct file *filp, const char __user *buf, size_t size, loff_t *ppos)
+mem	globalmem_two.c	/^	unsigned char mem[GLOBALMEM_SIZE]; \/*全局内存*\/        $/;"	m	struct:globalmem_dev	file:	access:public

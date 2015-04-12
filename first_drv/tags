@@ -1,0 +1,55 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+KERN_DIR	Makefile	/^KERN_DIR = \/home\/wu\/workspace\/kernel\/linux-2.6.22.with_yaffs20070816$/;"	m
+__attribute_used__	first_drv_3.mod.c	/^__attribute_used__$/;"	v	file:
+__this_module	first_drv_3.mod.c	/^struct module __this_module$/;"	v	typeref:struct:module
+first_drv_exit	first_drv.c	/^module_exit(first_drv_exit);$/;"	v
+first_drv_exit	first_drv.c	/^static void first_drv_exit(void)$/;"	f	file:	signature:(void)
+first_drv_exit	first_drv_1.c	/^module_exit(first_drv_exit);$/;"	v
+first_drv_exit	first_drv_1.c	/^static void first_drv_exit(void)$/;"	f	file:	signature:(void)
+first_drv_exit	first_drv_2.c	/^module_exit(first_drv_exit);$/;"	v
+first_drv_exit	first_drv_2.c	/^static void first_drv_exit(void)$/;"	f	file:	signature:(void)
+first_drv_exit	first_drv_3.c	/^module_exit(first_drv_exit);$/;"	v
+first_drv_exit	first_drv_3.c	/^static void first_drv_exit(void)$/;"	f	file:	signature:(void)
+first_drv_fops	first_drv.c	/^static struct file_operations first_drv_fops = {$/;"	v	typeref:struct:file_operations	file:
+first_drv_fops	first_drv_1.c	/^static struct file_operations first_drv_fops = {$/;"	v	typeref:struct:file_operations	file:
+first_drv_fops	first_drv_2.c	/^static struct file_operations first_drv_fops = {$/;"	v	typeref:struct:file_operations	file:
+first_drv_fops	first_drv_3.c	/^static struct file_operations first_drv_fops = {$/;"	v	typeref:struct:file_operations	file:
+first_drv_init	first_drv.c	/^module_init(first_drv_init);$/;"	v
+first_drv_init	first_drv.c	/^static int first_drv_init(void)$/;"	f	file:	signature:(void)
+first_drv_init	first_drv_1.c	/^module_init(first_drv_init);$/;"	v
+first_drv_init	first_drv_1.c	/^static int first_drv_init(void)$/;"	f	file:	signature:(void)
+first_drv_init	first_drv_2.c	/^module_init(first_drv_init);$/;"	v
+first_drv_init	first_drv_2.c	/^static int first_drv_init(void)$/;"	f	file:	signature:(void)
+first_drv_init	first_drv_3.c	/^module_init(first_drv_init);$/;"	v
+first_drv_init	first_drv_3.c	/^static int first_drv_init(void)$/;"	f	file:	signature:(void)
+first_drv_open	first_drv.c	/^static int first_drv_open(struct inode *inode, struct file *file)$/;"	f	file:	signature:(struct inode *inode, struct file *file)
+first_drv_open	first_drv_1.c	/^static int first_drv_open(struct inode *inode, struct file *file)$/;"	f	file:	signature:(struct inode *inode, struct file *file)
+first_drv_open	first_drv_2.c	/^static int first_drv_open(struct inode *inode, struct file *file)$/;"	f	file:	signature:(struct inode *inode, struct file *file)
+first_drv_open	first_drv_3.c	/^static int first_drv_open(struct inode *inode, struct file *file)$/;"	f	file:	signature:(struct inode *inode, struct file *file)
+first_drv_write	first_drv.c	/^static ssize_t first_drv_write(struct file *file, const char __user *buf, size_t count, loff_t * ppos)$/;"	f	file:	signature:(struct file *file, const char __user *buf, size_t count, loff_t * ppos)
+first_drv_write	first_drv_1.c	/^static ssize_t first_drv_write(struct file *file, const char __user *buf, size_t count, loff_t * ppos)$/;"	f	file:	signature:(struct file *file, const char __user *buf, size_t count, loff_t * ppos)
+first_drv_write	first_drv_2.c	/^static ssize_t first_drv_write(struct file *file, const char __user *buf, size_t count, loff_t * ppos)$/;"	f	file:	signature:(struct file *file, const char __user *buf, size_t count, loff_t * ppos)
+first_drv_write	first_drv_3.c	/^static ssize_t first_drv_write(struct file *file, const char __user *buf, size_t count, loff_t * ppos)$/;"	f	file:	signature:(struct file *file, const char __user *buf, size_t count, loff_t * ppos)
+firstdrv_class	first_drv.c	/^static struct class *firstdrv_class;$/;"	v	typeref:struct:class	file:
+firstdrv_class	first_drv_2.c	/^static struct class *firstdrv_class;$/;"	v	typeref:struct:class	file:
+firstdrv_class	first_drv_3.c	/^static struct class *firstdrv_class;$/;"	v	typeref:struct:class	file:
+firstdrv_class_dev	first_drv.c	/^static struct class_device	*firstdrv_class_dev;$/;"	v	typeref:struct:class_device	file:
+firstdrv_class_dev	first_drv_2.c	/^static struct class_device	*firstdrv_class_dev;$/;"	v	typeref:struct:class_device	file:
+firstdrv_class_dev	first_drv_3.c	/^static struct class_device	*firstdrv_class_dev;$/;"	v	typeref:struct:class_device	file:
+gpbcon	first_drv_3.c	/^volatile unsigned long *gpbcon = NULL;$/;"	v
+gpbdat	first_drv_3.c	/^volatile unsigned long *gpbdat = NULL;$/;"	v
+gpfcon	first_drv.c	/^volatile unsigned long *gpfcon = NULL;$/;"	v
+gpfdat	first_drv.c	/^volatile unsigned long *gpfdat = NULL;$/;"	v
+main	firstdrvtest.c	/^int main(int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
+main	firstdrvtest_1.c	/^int main(int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
+main	firstdrvtest_2.c	/^int main(int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
+main	firstdrvtest_3.c	/^int main(int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
+major	first_drv.c	/^int major;$/;"	v
+major	first_drv_1.c	/^int major;$/;"	v
+major	first_drv_2.c	/^int major;$/;"	v
+major	first_drv_3.c	/^int major;$/;"	v

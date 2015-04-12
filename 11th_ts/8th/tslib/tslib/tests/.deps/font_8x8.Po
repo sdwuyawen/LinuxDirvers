@@ -1,0 +1,18 @@
+font_8x8.o: font_8x8.c font.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/linux/types.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/linux/posix_types.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/linux/stddef.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/asm/posix_types.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/asm/types.h
+
+font.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/linux/types.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/linux/posix_types.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/linux/stddef.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/asm/posix_types.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/asm/types.h:

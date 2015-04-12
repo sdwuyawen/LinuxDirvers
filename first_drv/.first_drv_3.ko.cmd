@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/first_drv/first_drv_3.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/first_drv/first_drv_3.ko /home/wu/workspace/drivers/first_drv/first_drv_3.o /home/wu/workspace/drivers/first_drv/first_drv_3.mod.o

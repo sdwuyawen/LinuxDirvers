@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/10th_lcd/3th/lcd_3.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/10th_lcd/3th/lcd_3.ko /home/wu/workspace/drivers/10th_lcd/3th/lcd_3.o /home/wu/workspace/drivers/10th_lcd/3th/lcd_3.mod.o

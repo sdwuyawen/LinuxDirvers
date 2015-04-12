@@ -1,0 +1,14 @@
+platform_device
+	s3cĿ¼
+	CONFIG_SND_S3C_SOC						s3c-pcm.o 			-> snd-soc-s3c.o
+	CONFIG_SND_S3C2416_SOC_I2S				s3c2416-i2s.o		-> snd-soc-s3c2416-i2s.o
+	CONFIG_SND_S3C24XX_SOC_SMDK2416_WM8753	smdk2416_wm8753.o	-> snd-soc-smdk2416-wm8753.o
+												.name = "soc-audio"
+	
+	codecĿ¼
+	CONFIG_SND_SOC_WM8753					wm8753.o		-> snd-soc-wm8753.o
+
+platform_driver
+	socĿ¼
+	CONFIG_SND_SOC							soc-core.o
+												.name = "soc-audio"

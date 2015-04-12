@@ -1,0 +1,69 @@
+Unable to handle kernel paging request at virtual address 56000010
+pgd = c3cc0000
+[56000010] *pgd=00000000
+
+Internal error: Oops: 5 [#1]
+Modules linked in: first_drv
+
+CPU: 0    Not tainted  (2.6.22-g65e0394e #25)
+
+PC is at first_drv_open+0x30/0x58 [first_drv]
+LR is at release_console_sem+0x1bc/0x1d8
+pc : [<bf0000f8>]    lr : [<c0044a14>]    psr: 60000013
+sp : c3f9de68  ip : c3f9dd90  fp : c3f9de7c
+r10: 00000000  r9 : c3f9c000  r8 : 00000000
+r7 : 00000000  r6 : c06db7a0  r5 : c3ddb5c0  r4 : bf000960
+r3 : 56000010  r2 : c03675c8  r1 : 60000013  r0 : 00000000
+Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  Segment user
+Control: 0005317f  Table: 33cc0000  DAC: 00000015
+
+Process firstdrvtest_3 (pid: 793, stack limit = 0xc3f9c260)
+
+Stack: (0xc3f9de68 to 0xc3f9e000)
+de60:                   c3f04140 c3ddb5c0 c3f9deac c3f9de80 c008aa34 bf0000d8 
+						(first_drv_open'sp                        lr           )
+de80: 00000003 00000000 beee9ed0 c3ddb5c0 c3f04140 c0474ea0 c008a8ec c3cd4ea4 
+	  (chrdev_open'sp
+dea0: c3f9ded4 c3f9deb0 c00865c4 c008a8fc 
+						  lr			) 
+										  c3ddb5c0 c3f9df00 ffffff9c beee9ed0 
+										  (__dentry_open'sp
+dec0: 00000002 00000000 c3f9def4 c3f9ded8 c0086750 c00864d8 
+											 lr			  )	
+															00000000 00000002 
+															(nameidata_to_filp'sp
+dee0: c3f9c000 00000002 c3f9df64 c3f9def8 c00867a4 c0086728
+											 lr			  )	
+															c3f9df00 c3f9df08
+															(do_filp_open'sp
+df00: c3cd4ea4 c0474ea0 c005b744 c04ec2e0 c04ec2e0 00000101 00000001 00000000 
+df20: c3f9c000 00000003 00000002 00000000 c3f9df64 c3f9df40 c0086450 c009cbf8 
+df40: 00000000 00000003 00000000 c3ddb5c0 00000003 c3f75000 c3f9df94 c3f9df68 
+df60: c0086800 c0086778 
+		lr			  )	
+					    00000000 40024000 c3f9df9c 00000000 00000000 00000000 
+						(do_sys_open'sp
+df80: 00000005 c002b068 c3f9dfa4 c3f9df98 c0086900 c00867bc
+											lr			  )	
+														    00000000 c3f9dfa8 
+															(sys_open'sp
+dfa0: c002aec0 c00868ec 
+		lr			  )	00000000 00000000 00008620 00000002 beee9ed0 00000001 
+dfc0: 00000000 00000000 00000000 00000005 00000000 00000000 40024000 beee9d74 
+dfe0: 00000000 beee9d60 00008494 400d9e4c 60000010 00008620 00000000 00000000 
+
+Backtrace: 
+[<bf0000c8>] (first_drv_open+0x0/0x58 [first_drv]) from [<c008aa34>] (chrdev_open+0x148/0x164)
+ r5:c3ddb5c0 r4:c3f04140
+[<c008a8ec>] (chrdev_open+0x0/0x164) from [<c00865c4>] (__dentry_open+0xfc/0x1e4)
+ r8:c3cd4ea4 r7:c008a8ec r6:c0474ea0 r5:c3f04140 r4:c3ddb5c0
+[<c00864c8>] (__dentry_open+0x0/0x1e4) from [<c0086750>] (nameidata_to_filp+0x38/0x50)
+[<c0086718>] (nameidata_to_filp+0x0/0x50) from [<c00867a4>] (do_filp_open+0x3c/0x44)
+ r4:00000002
+[<c0086768>] (do_filp_open+0x0/0x44) from [<c0086800>] (do_sys_open+0x54/0x11c)
+ r5:c3f75000 r4:00000003
+[<c00867ac>] (do_sys_open+0x0/0x11c) from [<c0086900>] (sys_open+0x24/0x28)
+ r8:c002b068 r7:00000005 r6:00000000 r5:00000000 r4:00000000
+[<c00868dc>] (sys_open+0x0/0x28) from [<c002aec0>] (ret_fast_syscall+0x0/0x2c)
+Code: e5843014 eb41139d e594300c e3a00000 (e5932000) 
+Segmentation fault

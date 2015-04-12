@@ -1,0 +1,1072 @@
+cscope 15 $HOME/workspace/drivers/24th_proc_mymsg/6th -q 0000000130 0000005935
+	@first_drv.c
+
+1 
+	~<löux/moduÀ.h
+>
+
+2 
+	~<löux/kî√l.h
+>
+
+3 
+	~<löux/fs.h
+>
+
+4 
+	~<löux/öô.h
+>
+
+5 
+	~<löux/dñay.h
+>
+
+6 
+	~<asm/uac˚ss.h
+>
+
+7 
+	~<asm/úq.h
+>
+
+8 
+	~<asm/io.h
+>
+
+9 
+	~<asm/¨ch/ªgs-gpio.h
+>
+
+10 
+	~<asm/h¨dw¨e.h
+>
+
+12 
+˛ass
+ *
+	gfú°drv_˛ass
+;
+
+13 
+˛ass_devi˚
+ *
+	gfú°drv_˛ass_dev
+;
+
+15 vﬁ©ûê*
+	ggpbc⁄
+ = 
+NULL
+;
+
+16 vﬁ©ûê*
+	ggpbd©
+ = 
+NULL
+;
+
+18 
+my¥ötk
+(c⁄° *
+fmt
+, ...);
+
+20 
+	$fú°_drv_›í
+(
+öode
+ *öode, 
+fûe
+ *file)
+
+22 
+˙t
+ = 0;
+
+24 
+	`my¥ötk
+("fú°_drv_›í,%d\n", 
+˙t
+++);
+
+26 *
+gpbc⁄
+ &= ~( 0x3<<(1*2) );
+
+27 *
+gpbc⁄
+ |= ( 0x1<<(1*2) );
+
+30 
+	}
+}
+
+32 
+ssize_t
+ 
+	$fú°_drv_wrôe
+(
+fûe
+ *fûe, c⁄° 
+__u£r
+ *
+buf
+, 
+size_t
+ 
+cou¡
+, 
+loff_t
+ * 
+µos
+)
+
+34 
+vÆ
+;
+
+35 
+˙t
+ = 0;
+
+37 
+	`my¥ötk
+("fú°_drv_wrôe,%d\n", 
+˙t
+++);
+
+39 
+	`c›y_‰om_u£r
+(&
+vÆ
+, 
+buf
+, 
+cou¡
+);
+
+41 i‡(
+vÆ
+ == 1)
+
+44 *
+gpbd©
+ &= ~(0x1<<1);
+
+49 *
+gpbd©
+ |= (0x1<<1);
+
+53 
+	}
+}
+
+55 
+fûe_›î©i⁄s
+ 
+	gfú°_drv_f›s
+ = {
+
+56 .
+ow√r
+ = 
+THIS_MODULE
+,
+
+57 .
+	g›í
+ = 
+fú°_drv_›í
+,
+
+58 .
+	gwrôe
+ = 
+fú°_drv_wrôe
+,
+
+62 
+	gmaj‹
+;
+
+63 
+	$fú°_drv_öô
+()
+
+65 
+maj‹
+ = 
+	`ªgi°î_chrdev
+(0, "fú°_drv", &
+fú°_drv_f›s
+);
+
+67 
+fú°drv_˛ass
+ = 
+	`˛ass_¸óã
+(
+THIS_MODULE
+, "firstdrv");
+
+69 
+fú°drv_˛ass_dev
+ = 
+	`˛ass_devi˚_¸óã
+(
+fú°drv_˛ass
+, 
+NULL
+, 
+	`MKDEV
+(
+maj‹
+, 0), NULL, "xyz");
+
+71 
+gpbc⁄
+ = (vﬁ©ûê*)
+	`i‹em≠
+(0x56000010, 16);
+
+72 
+gpbd©
+ = 
+gpbc⁄
+ + 1;
+
+75 
+	}
+}
+
+77 
+	$fú°_drv_exô
+()
+
+79 
+	`uƒegi°î_chrdev
+(
+maj‹
+, "first_drv");
+
+81 
+	`˛ass_devi˚_uƒegi°î
+(
+fú°drv_˛ass_dev
+);
+
+82 
+	`˛ass_de°roy
+(
+fú°drv_˛ass
+);
+
+83 
+	}
+}
+
+85 
+moduÀ_öô
+(
+fú°_drv_öô
+);
+
+86 
+moduÀ_exô
+(
+fú°_drv_exô
+);
+
+89 
+MODULE_LICENSE
+("GPL");
+
+	@first_drv.mod.c
+
+1 
+	~<löux/moduÀ.h
+>
+
+2 
+	~<löux/vîmagic.h
+>
+
+3 
+	~<löux/compûî.h
+>
+
+5 
+MODULE_INFO
+(
+vîmagic
+, 
+VERMAGIC_STRING
+);
+
+7 
+moduÀ
+ 
+__this_moduÀ
+
+
+8 
+__©åibuã__
+((
+£˘i⁄
+(".gnu.linkonce.this_module"))) = {
+
+9 .
+«me
+ = 
+KBUILD_MODNAME
+,
+
+10 .
+	göô
+ = 
+öô_moduÀ
+,
+
+11 #ifde‡
+CONFIG_MODULE_UNLOAD
+
+
+12 .
+	gexô
+ = 
+˛ónup_moduÀ
+,
+
+14 .
+	g¨ch
+ = 
+MODULE_ARCH_INIT
+,
+
+17 c⁄° 
+	g__moduÀ_dïíds
+[]
+
+18 
+__©åibuã_u£d__
+
+
+19 
+__©åibuã__
+((
+£˘i⁄
+(".modinfo"))) =
+
+	@firstdrvtest_3.c
+
+2 
+	~<sys/ty≥s.h
+>
+
+3 
+	~<sys/°©.h
+>
+
+4 
+	~<f˙é.h
+>
+
+5 
+	~<°dio.h
+>
+
+10 
+	$maö
+(
+¨gc
+, **
+¨gv
+)
+
+12 
+fd
+;
+
+13 
+vÆ
+ = 1;
+
+14 
+fd
+ = 
+	`›í
+("/dev/xyz", 
+O_RDWR
+);
+
+15 i‡(
+fd
+ < 0)
+
+17 
+	`¥ötf
+("can't open!\n");
+
+19 if(
+¨gc
+ != 2)
+
+21 
+	`¥ötf
+("Usage :\n");
+
+22 
+	`¥ötf
+("%†<⁄|off>\n", 
+¨gv
+[0]);
+
+26 if(
+	`°rcmp
+(
+¨gv
+[1],"on") == 0)
+
+28 
+vÆ
+ = 1;
+
+30 if(
+	`°rcmp
+(
+¨gv
+[1],"off") == 0)
+
+32 
+vÆ
+ = 0;
+
+36 
+	`¥ötf
+("Usage :\n");
+
+37 
+	`¥ötf
+("%†<⁄|off>\n", 
+¨gv
+[0]);
+
+41 
+	`wrôe
+(
+fd
+, &
+vÆ
+, 4);
+
+43 
+	}
+}
+
+	@mymsg.c
+
+19 
+	~<löux/moduÀ.h
+>
+
+20 
+	~<löux/kî√l.h
+>
+
+21 
+	~<löux/fs.h
+>
+
+22 
+	~<löux/öô.h
+>
+
+23 
+	~<löux/dñay.h
+>
+
+24 
+	~<asm/uac˚ss.h
+>
+
+25 
+	~<asm/úq.h
+>
+
+26 
+	~<asm/io.h
+>
+
+27 
+	~<asm/¨ch/ªgs-gpio.h
+>
+
+28 
+	~<asm/h¨dw¨e.h
+>
+
+29 
+	~<löux/¥oc_fs.h
+>
+
+31 
+	#MYLOG_BUF_LEN
+ 1024
+
+	)
+
+33 
+¥oc_dú_íåy
+ *
+	gmyíåy
+;
+
+34 
+	gmylog_buf
+[
+MYLOG_BUF_LEN
+];
+
+35 
+	gtmp_buf
+[
+MYLOG_BUF_LEN
+];
+
+36 
+	gmylog_r
+ = 0;
+
+37 
+	gmylog_w
+ = 0;
+
+38 
+	gmylog_r_f‹_ªad
+ = 0;
+
+40 
+DECLARE_WAIT_QUEUE_HEAD
+(
+mymsg_waôq
+);
+
+42 
+	$is_mylog_em±y
+()
+
+44  (
+mylog_r
+ =
+mylog_w
+);
+
+45 
+	}
+}
+
+47 
+	$is_mylog_em±y_f‹_ªad
+()
+
+49  (
+mylog_r_f‹_ªad
+ =
+mylog_w
+);
+
+50 
+	}
+}
+
+53 
+	$is_mylog_fuŒ
+()
+
+55 i‡((
+mylog_w
+ + 1)% 
+MYLOG_BUF_LEN
+ =
+mylog_r
+)
+
+60 
+	}
+}
+
+63 
+	$mylog_putc
+(
+c
+)
+
+65 i‡(
+	`is_mylog_fuŒ
+())
+
+68 
+mylog_r
+ = (mylog_∏+ 1Ë% 
+MYLOG_BUF_LEN
+;
+
+72 i‡((
+mylog_r_f‹_ªad
+ + 1Ë% 
+MYLOG_BUF_LEN
+ =
+mylog_r
+)
+
+74 
+mylog_r_f‹_ªad
+ = 
+mylog_r
+;
+
+78 
+mylog_buf
+[
+mylog_w
+] = 
+c
+;
+
+79 
+mylog_w
+ = (mylog_w + 1Ë% 
+MYLOG_BUF_LEN
+;
+
+82 
+	`wake_up_öãºu±ibÀ
+(&
+mymsg_waôq
+);
+
+83 
+	}
+}
+
+85 
+	$mylog_gëc
+(*
+p
+)
+
+87 i‡(
+	`is_mylog_em±y
+())
+
+91 *
+p
+ = 
+mylog_buf
+[
+mylog_r
+];
+
+92 
+mylog_r
+ = (mylog_∏+ 1Ë% 
+MYLOG_BUF_LEN
+;
+
+94 
+	}
+}
+
+96 
+	$mylog_gëc_f‹_ªad
+(*
+p
+)
+
+98 i‡(
+	`is_mylog_em±y_f‹_ªad
+())
+
+102 *
+p
+ = 
+mylog_buf
+[
+mylog_r_f‹_ªad
+];
+
+103 
+mylog_r_f‹_ªad
+ = (mylog_r_f‹_ªad + 1Ë% 
+MYLOG_BUF_LEN
+;
+
+105 
+	}
+}
+
+106 
+	$my¥ötk
+(c⁄° *
+fmt
+, ...)
+
+108 
+va_li°
+ 
+¨gs
+;
+
+109 
+i
+;
+
+110 
+j
+;
+
+112 
+	`va_°¨t
+(
+¨gs
+, 
+fmt
+);
+
+113 
+i
+ = 
+	`v¢¥ötf
+(
+tmp_buf
+, 
+INT_MAX
+, 
+fmt
+, 
+¨gs
+);
+
+114 
+	`va_íd
+(
+¨gs
+);
+
+116 
+j
+ = 0; j < 
+i
+; j++)
+
+117 
+	`mylog_putc
+(
+tmp_buf
+[
+j
+]);
+
+119  
+i
+;
+
+120 
+	}
+}
+
+122 
+ssize_t
+ 
+	$mymsg_ªad
+(
+fûe
+ *fûe, 
+__u£r
+ *
+buf
+,
+
+123 
+size_t
+ 
+cou¡
+, 
+loff_t
+ *
+µos
+)
+
+126 
+îr‹
+ = 0;
+
+127 
+i
+ = 0;
+
+128 
+c
+;
+
+135 i‡((
+fûe
+->
+f_Êags
+ & 
+O_NONBLOCK
+Ë&& 
+	`is_mylog_em±y_f‹_ªad
+())
+
+136  -
+EAGAIN
+;
+
+138 
+îr‹
+ = 
+	`waô_evít_öãºu±ibÀ
+(
+mymsg_waôq
+, !
+	`is_mylog_em±y_f‹_ªad
+());
+
+141 !
+îr‹
+ && (
+	`mylog_gëc_f‹_ªad
+(&
+c
+)Ë&& 
+i
+ < 
+cou¡
+)
+
+143 
+îr‹
+ = 
+	`__put_u£r
+(
+c
+, 
+buf
+);
+
+144 
+buf
+++;
+
+145 
+i
+++;
+
+150 i‡(!
+îr‹
+)
+
+151 
+îr‹
+ = 
+i
+;
+
+152  
+îr‹
+;
+
+153 
+	}
+}
+
+155 
+	$mymsg_›í
+(
+öode
+ *öode, 
+fûe
+ *file)
+
+157 
+mylog_r_f‹_ªad
+ = 
+mylog_r
+;
+
+159 
+	}
+}
+
+161 c⁄° 
+fûe_›î©i⁄s
+ 
+	g¥oc_mymsg_›î©i⁄s
+ =
+
+163 .
+›í
+ = 
+mymsg_›í
+,
+
+164 .
+	gªad
+ = 
+mymsg_ªad
+,
+
+167 
+	$mymsg_öô
+()
+
+171 
+myíåy
+ = 
+	`¸óã_¥oc_íåy
+("mymsg", 
+S_IRUSR
+, &
+¥oc_roŸ
+);
+
+172 i‡(
+myíåy
+)
+
+173 
+myíåy
+->
+¥oc_f›s
+ = &
+¥oc_mymsg_›î©i⁄s
+;
+
+175 
+	}
+}
+
+177 
+	$mymsg_exô
+()
+
+179 
+	`ªmove_¥oc_íåy
+("mymsg", &
+¥oc_roŸ
+);
+
+180 
+	}
+}
+
+182 
+moduÀ_öô
+(
+mymsg_öô
+);
+
+183 
+moduÀ_exô
+(
+mymsg_exô
+);
+
+185 
+EXPORT_SYMBOL
+(
+my¥ötk
+);
+
+187 
+MODULE_LICENSE
+("GPL");
+
+	@mymsg.mod.c
+
+1 
+	~<löux/moduÀ.h
+>
+
+2 
+	~<löux/vîmagic.h
+>
+
+3 
+	~<löux/compûî.h
+>
+
+5 
+MODULE_INFO
+(
+vîmagic
+, 
+VERMAGIC_STRING
+);
+
+7 
+moduÀ
+ 
+__this_moduÀ
+
+
+8 
+__©åibuã__
+((
+£˘i⁄
+(".gnu.linkonce.this_module"))) = {
+
+9 .
+«me
+ = 
+KBUILD_MODNAME
+,
+
+10 .
+	göô
+ = 
+öô_moduÀ
+,
+
+11 #ifde‡
+CONFIG_MODULE_UNLOAD
+
+
+12 .
+	gexô
+ = 
+˛ónup_moduÀ
+,
+
+14 .
+	g¨ch
+ = 
+MODULE_ARCH_INIT
+,
+
+17 c⁄° 
+	g__moduÀ_dïíds
+[]
+
+18 
+__©åibuã_u£d__
+
+
+19 
+__©åibuã__
+((
+£˘i⁄
+(".modinfo"))) =
+
+	@
+1
+.
+0
+5
+65
+first_drv.c
+first_drv.mod.c
+firstdrvtest_3.c
+mymsg.c
+mymsg.mod.c

@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/27th_debug_with_timer/first_drv/first_drv.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/27th_debug_with_timer/first_drv/first_drv.ko /home/wu/workspace/drivers/27th_debug_with_timer/first_drv/first_drv.o /home/wu/workspace/drivers/27th_debug_with_timer/first_drv/first_drv.mod.o

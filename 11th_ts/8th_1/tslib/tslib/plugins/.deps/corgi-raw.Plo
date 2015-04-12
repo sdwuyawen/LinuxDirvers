@@ -1,0 +1,121 @@
+corgi-raw.lo: corgi-raw.c \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/stdlib.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/features.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/cdefs.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/wordsize.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/gnu/stubs.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../lib/gcc/arm-jyxtec-linux-gnueabi/4.4.6/include/stddef.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/types.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/types.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/typesizes.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/time.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/endian.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/endian.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/byteswap.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/select.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/select.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/sigset.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/time.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/sysmacros.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/pthreadtypes.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/alloca.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/stdlib.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/stdio.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/libio.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/_G_config.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/wchar.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../lib/gcc/arm-jyxtec-linux-gnueabi/4.4.6/include/stdarg.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/stdio_lim.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/sys_errlist.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/stdio.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/stdio2.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/unistd.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/posix_opt.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/confname.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/getopt.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/unistd.h \
+ ../config.h ../src/tslib-private.h ../src/tslib.h \
+ /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/time.h \
+ ../src/tslib-filter.h ../src/tslib.h
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/stdlib.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/features.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/cdefs.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/wordsize.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/gnu/stubs.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../lib/gcc/arm-jyxtec-linux-gnueabi/4.4.6/include/stddef.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/types.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/types.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/typesizes.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/time.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/endian.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/endian.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/byteswap.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/select.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/select.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/sigset.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/time.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/sysmacros.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/pthreadtypes.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/alloca.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/stdlib.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/stdio.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/libio.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/_G_config.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/wchar.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../lib/gcc/arm-jyxtec-linux-gnueabi/4.4.6/include/stdarg.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/stdio_lim.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/sys_errlist.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/stdio.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/stdio2.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/unistd.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/posix_opt.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/confname.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/getopt.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/bits/unistd.h:
+
+../config.h:
+
+../src/tslib-private.h:
+
+../src/tslib.h:
+
+/home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../arm-jyxtec-linux-gnueabi/sysroot/usr/include/sys/time.h:
+
+../src/tslib-filter.h:
+
+../src/tslib.h:

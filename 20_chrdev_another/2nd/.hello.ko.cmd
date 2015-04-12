@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/20_chrdev_another/2nd/hello.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/20_chrdev_another/2nd/hello.ko /home/wu/workspace/drivers/20_chrdev_another/2nd/hello.o /home/wu/workspace/drivers/20_chrdev_another/2nd/hello.mod.o

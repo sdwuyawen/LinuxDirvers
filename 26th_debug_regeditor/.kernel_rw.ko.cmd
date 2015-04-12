@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/26th_debug_regeditor/kernel_rw.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/26th_debug_regeditor/kernel_rw.ko /home/wu/workspace/drivers/26th_debug_regeditor/kernel_rw.o /home/wu/workspace/drivers/26th_debug_regeditor/kernel_rw.mod.o

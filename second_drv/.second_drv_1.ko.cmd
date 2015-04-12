@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/second_drv/second_drv_1.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/second_drv/second_drv_1.ko /home/wu/workspace/drivers/second_drv/second_drv_1.o /home/wu/workspace/drivers/second_drv/second_drv_1.mod.o

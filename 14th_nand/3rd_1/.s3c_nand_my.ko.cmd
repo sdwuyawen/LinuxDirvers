@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/14th_nand/3rd_1/s3c_nand_my.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/14th_nand/3rd_1/s3c_nand_my.ko /home/wu/workspace/drivers/14th_nand/3rd_1/s3c_nand_my.o /home/wu/workspace/drivers/14th_nand/3rd_1/s3c_nand_my.mod.o

@@ -1,0 +1,6 @@
+---- I2CIntHandle Æ¥Åä (5 in 3 ÎÄ¼þ) ----
+I2c.c:void I2CIntHandle(void)
+I2c.c:	putstring("I2CIntHandle Entered\n\r"); 
+I2c.h:void I2CIntHandle(void);
+Interrupt.c:extern void I2CIntHandle(void);
+Interrupt.c:	isr_handle_array[ISR_IIC_OFT]  = I2CIntHandle;

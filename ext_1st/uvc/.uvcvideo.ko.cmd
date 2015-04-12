@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/ext_1st/uvc/uvcvideo.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/ext_1st/uvc/uvcvideo.ko /home/wu/workspace/drivers/ext_1st/uvc/uvcvideo.o /home/wu/workspace/drivers/ext_1st/uvc/uvcvideo.mod.o

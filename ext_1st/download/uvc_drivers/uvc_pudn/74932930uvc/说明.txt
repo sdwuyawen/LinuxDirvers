@@ -1,0 +1,23 @@
+Terry Support
+
+将uvc目录复制到driver/media/video目录下
+
+以下增加到driver/media/video的Makefile中
+obj-$(CONFIG_USB_VIDEO_CLASS) += uvc/
+
+以下增加到driver/media/video的Kconfig中
+(放在menu "V4L USB devices" depends on USB && VIDEO_DEV后)
+source "drivers/media/video/uvc/Kconfig"
+
+配置menuconcig打开
+Device Drivers  --->
+    I2C support  --->
+        <*> I2C support
+    Multimedia devices  --->
+        <*> Video For Linux
+        [*]   Enable Video For Linux API 1 compatible Layer
+        [*]   Enable Video For Linux API 2
+            Video Capture Adapters  --->
+                V4L USB devices  --->
+                     <*>   USB Video Class (UVC)
+                     [*]     UVC input events device support (NEW)

@@ -1,0 +1,1 @@
+cmd_/home/wu/workspace/drivers/8th_buttons_input/buttons.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/8th_buttons_input/buttons.ko /home/wu/workspace/drivers/8th_buttons_input/buttons.o /home/wu/workspace/drivers/8th_buttons_input/buttons.mod.o
