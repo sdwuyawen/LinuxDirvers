@@ -1,13 +1,13 @@
-cmd_/home/wu/workspace/drivers/forth_drv/forth_drv_1.o := arm-linux-gcc -Wp,-MD,/home/wu/workspace/drivers/forth_drv/.forth_drv_1.o.d  -nostdinc -isystem /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../lib/gcc/arm-jyxtec-linux-gnueabi/4.4.6/include -D__KERNEL__ -Iinclude  -include include/linux/autoconf.h -mlittle-endian -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Os -marm -fno-omit-frame-pointer -mapcs -mno-sched-prolog -mabi=aapcs-linux -mno-thumb-interwork -D__LINUX_ARM_ARCH__=4 -march=armv4t -mtune=arm9tdmi  -msoft-float -Uarm -fno-omit-frame-pointer -fno-optimize-sibling-calls -g  -fno-stack-protector -Wdeclaration-after-statement -Wno-pointer-sign   -DMODULE -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(forth_drv_1)"  -D"KBUILD_MODNAME=KBUILD_STR(forth_drv_1)" -c -o /home/wu/workspace/drivers/forth_drv/forth_drv_1.o /home/wu/workspace/drivers/forth_drv/forth_drv_1.c
+cmd_/home/wu/workspace/drivers/forth_drv/forth_drv_2.mod.o := arm-linux-gcc -Wp,-MD,/home/wu/workspace/drivers/forth_drv/.forth_drv_2.mod.o.d  -nostdinc -isystem /home/wu/workspace/arm-jyxtec-linux-gnueabi/bin/../lib/gcc/arm-jyxtec-linux-gnueabi/4.4.6/include -D__KERNEL__ -Iinclude  -include include/linux/autoconf.h -mlittle-endian -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Os -marm -fno-omit-frame-pointer -mapcs -mno-sched-prolog -mabi=aapcs-linux -mno-thumb-interwork -D__LINUX_ARM_ARCH__=4 -march=armv4t -mtune=arm9tdmi  -msoft-float -Uarm -fno-omit-frame-pointer -fno-optimize-sibling-calls -g  -fno-stack-protector -Wdeclaration-after-statement -Wno-pointer-sign    -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(forth_drv_2.mod)"  -D"KBUILD_MODNAME=KBUILD_STR(forth_drv_2)" -DMODULE -c -o /home/wu/workspace/drivers/forth_drv/forth_drv_2.mod.o /home/wu/workspace/drivers/forth_drv/forth_drv_2.mod.c
 
-deps_/home/wu/workspace/drivers/forth_drv/forth_drv_1.o := \
-  /home/wu/workspace/drivers/forth_drv/forth_drv_1.c \
+deps_/home/wu/workspace/drivers/forth_drv/forth_drv_2.mod.o := \
+  /home/wu/workspace/drivers/forth_drv/forth_drv_2.mod.c \
+    $(wildcard include/config/module/unload.h) \
   include/linux/module.h \
     $(wildcard include/config/modules.h) \
     $(wildcard include/config/modversions.h) \
     $(wildcard include/config/unused/symbols.h) \
     $(wildcard include/config/generic/bug.h) \
-    $(wildcard include/config/module/unload.h) \
     $(wildcard include/config/kallsyms.h) \
     $(wildcard include/config/sysfs.h) \
   include/linux/spinlock.h \
@@ -223,160 +223,9 @@ deps_/home/wu/workspace/drivers/forth_drv/forth_drv_1.o := \
     $(wildcard include/config/cpu/s3c2443.h) \
   include/linux/irq_cpustat.h \
   include/asm/module.h \
-  include/linux/fs.h \
-    $(wildcard include/config/dnotify.h) \
-    $(wildcard include/config/quota.h) \
-    $(wildcard include/config/inotify.h) \
-    $(wildcard include/config/security.h) \
-    $(wildcard include/config/epoll.h) \
-    $(wildcard include/config/auditsyscall.h) \
-    $(wildcard include/config/block.h) \
-    $(wildcard include/config/fs/xip.h) \
-    $(wildcard include/config/migration.h) \
-  include/linux/limits.h \
-  include/linux/ioctl.h \
-  include/asm/ioctl.h \
-  include/asm-generic/ioctl.h \
-  include/linux/kdev_t.h \
-  include/linux/dcache.h \
-    $(wildcard include/config/profiling.h) \
-  include/linux/rcupdate.h \
-  include/linux/namei.h \
-  include/linux/radix-tree.h \
-  include/linux/prio_tree.h \
-  include/linux/pid.h \
-  include/asm/semaphore.h \
-  include/asm/locks.h \
-  include/linux/quota.h \
-  include/linux/dqblk_xfs.h \
-  include/linux/dqblk_v1.h \
-  include/linux/dqblk_v2.h \
-  include/linux/nfs_fs_i.h \
-  include/linux/nfs.h \
-  include/linux/sunrpc/msg_prot.h \
-  include/linux/fcntl.h \
-  include/asm/fcntl.h \
-  include/asm-generic/fcntl.h \
-    $(wildcard include/config/64bit.h) \
-  include/linux/err.h \
-  include/linux/delay.h \
-  include/asm/delay.h \
-  include/asm/param.h \
-    $(wildcard include/config/hz.h) \
-  include/linux/irq.h \
-    $(wildcard include/config/s390.h) \
-    $(wildcard include/config/irq/per/cpu.h) \
-    $(wildcard include/config/irq/release/method.h) \
-    $(wildcard include/config/generic/pending/irq.h) \
-    $(wildcard include/config/irqbalance.h) \
-    $(wildcard include/config/proc/fs.h) \
-    $(wildcard include/config/auto/irq/affinity.h) \
-    $(wildcard include/config/generic/hardirqs/no//do/irq.h) \
-  include/linux/irqreturn.h \
-  include/asm/irq_regs.h \
-  include/asm-generic/irq_regs.h \
-  include/asm/hw_irq.h \
-    $(wildcard include/config/no/idle/hz.h) \
-  include/asm/mach/irq.h \
-  include/asm/uaccess.h \
-  include/linux/sched.h \
-    $(wildcard include/config/no/hz.h) \
-    $(wildcard include/config/detect/softlockup.h) \
-    $(wildcard include/config/split/ptlock/cpus.h) \
-    $(wildcard include/config/keys.h) \
-    $(wildcard include/config/bsd/process/acct.h) \
-    $(wildcard include/config/taskstats.h) \
-    $(wildcard include/config/inotify/user.h) \
-    $(wildcard include/config/schedstats.h) \
-    $(wildcard include/config/task/delay/acct.h) \
-    $(wildcard include/config/blk/dev/io/trace.h) \
-    $(wildcard include/config/cc/stackprotector.h) \
-    $(wildcard include/config/sysvipc.h) \
-    $(wildcard include/config/rt/mutexes.h) \
-    $(wildcard include/config/task/xacct.h) \
-    $(wildcard include/config/cpusets.h) \
-    $(wildcard include/config/compat.h) \
-    $(wildcard include/config/fault/injection.h) \
-  include/linux/capability.h \
-  include/linux/timex.h \
-    $(wildcard include/config/time/interpolation.h) \
-  include/asm/timex.h \
-  include/asm/arch/timex.h \
-  include/linux/jiffies.h \
-  include/linux/calc64.h \
-  include/asm/div64.h \
-  include/linux/rbtree.h \
-  include/asm/mmu.h \
-    $(wildcard include/config/cpu/has/asid.h) \
-  include/asm/cputime.h \
-  include/asm-generic/cputime.h \
-  include/linux/sem.h \
-  include/linux/ipc.h \
-    $(wildcard include/config/ipc/ns.h) \
-  include/asm/ipcbuf.h \
-  include/asm/sembuf.h \
-  include/linux/signal.h \
-  include/asm/signal.h \
-  include/asm-generic/signal.h \
-  include/asm/sigcontext.h \
-  include/asm/siginfo.h \
-  include/asm-generic/siginfo.h \
-  include/linux/securebits.h \
-  include/linux/fs_struct.h \
-  include/linux/completion.h \
-  include/linux/seccomp.h \
-    $(wildcard include/config/seccomp.h) \
-  include/linux/futex.h \
-    $(wildcard include/config/futex.h) \
-  include/linux/rtmutex.h \
-    $(wildcard include/config/debug/rt/mutexes.h) \
-  include/linux/plist.h \
-    $(wildcard include/config/debug/pi/list.h) \
-  include/linux/param.h \
-  include/linux/resource.h \
-  include/asm/resource.h \
-  include/asm-generic/resource.h \
-  include/linux/timer.h \
-    $(wildcard include/config/timer/stats.h) \
-  include/linux/ktime.h \
-    $(wildcard include/config/ktime/scalar.h) \
-  include/linux/hrtimer.h \
-    $(wildcard include/config/high/res/timers.h) \
-  include/linux/task_io_accounting.h \
-    $(wildcard include/config/task/io/accounting.h) \
-  include/linux/aio.h \
-  include/linux/workqueue.h \
-  include/linux/aio_abi.h \
-  include/linux/uio.h \
-  include/asm/io.h \
-  include/asm/arch/io.h \
-  include/asm/hardware.h \
-  include/asm/arch/hardware.h \
-    $(wildcard include/config/cpu/s3c2440.h) \
-    $(wildcard include/config/no/multiword/io.h) \
-  include/asm/arch/map.h \
-    $(wildcard include/config/cpu/s3c2412.h) \
-    $(wildcard include/config/cpu/s3c2413.h) \
-    $(wildcard include/config/cpu/s3c2412/only.h) \
-  include/asm/arch/regs-gpio.h \
-  include/linux/poll.h \
-  include/asm/poll.h \
-  include/asm-generic/poll.h \
-  include/linux/interrupt.h \
-    $(wildcard include/config/generic/irq/probe.h) \
-  include/linux/device.h \
-    $(wildcard include/config/debug/devres.h) \
-  include/linux/ioport.h \
-  include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/pm.h) \
-  include/asm/device.h \
-    $(wildcard include/config/dmabounce.h) \
-  include/asm/arch/regs-irq.h \
-  include/asm/plat-s3c24xx/cpu.h \
-  include/asm/plat-s3c24xx/pm.h \
-  include/asm/plat-s3c24xx/irq.h \
+  include/linux/vermagic.h \
+  include/linux/utsrelease.h \
 
-/home/wu/workspace/drivers/forth_drv/forth_drv_1.o: $(deps_/home/wu/workspace/drivers/forth_drv/forth_drv_1.o)
+/home/wu/workspace/drivers/forth_drv/forth_drv_2.mod.o: $(deps_/home/wu/workspace/drivers/forth_drv/forth_drv_2.mod.o)
 
-$(deps_/home/wu/workspace/drivers/forth_drv/forth_drv_1.o):
+$(deps_/home/wu/workspace/drivers/forth_drv/forth_drv_2.mod.o):
