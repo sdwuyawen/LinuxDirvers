@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/9th_led_bus_drv_dev/led_drv_1.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/9th_led_bus_drv_dev/led_drv_1.ko /home/wu/workspace/drivers/9th_led_bus_drv_dev/led_drv_1.o /home/wu/workspace/drivers/9th_led_bus_drv_dev/led_drv_1.mod.o

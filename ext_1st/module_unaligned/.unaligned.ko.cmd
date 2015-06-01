@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/ext_1st/module_unaligned/unaligned.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/ext_1st/module_unaligned/unaligned.ko /home/wu/workspace/drivers/ext_1st/module_unaligned/unaligned.o /home/wu/workspace/drivers/ext_1st/module_unaligned/unaligned.mod.o

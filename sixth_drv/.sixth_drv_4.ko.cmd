@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/sixth_drv/sixth_drv_4.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/sixth_drv/sixth_drv_4.ko /home/wu/workspace/drivers/sixth_drv/sixth_drv_4.o /home/wu/workspace/drivers/sixth_drv/sixth_drv_4.mod.o

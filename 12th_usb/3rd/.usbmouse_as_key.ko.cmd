@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/12th_usb/3rd/usbmouse_as_key.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/12th_usb/3rd/usbmouse_as_key.ko /home/wu/workspace/drivers/12th_usb/3rd/usbmouse_as_key.o /home/wu/workspace/drivers/12th_usb/3rd/usbmouse_as_key.mod.o

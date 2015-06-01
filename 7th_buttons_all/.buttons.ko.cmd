@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/7th_buttons_all/buttons.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/7th_buttons_all/buttons.ko /home/wu/workspace/drivers/7th_buttons_all/buttons.o /home/wu/workspace/drivers/7th_buttons_all/buttons.mod.o

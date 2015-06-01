@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/ext_1st/usb_test_1/usbmouse_as_key.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/ext_1st/usb_test_1/usbmouse_as_key.ko /home/wu/workspace/drivers/ext_1st/usb_test_1/usbmouse_as_key.o /home/wu/workspace/drivers/ext_1st/usb_test_1/usbmouse_as_key.mod.o

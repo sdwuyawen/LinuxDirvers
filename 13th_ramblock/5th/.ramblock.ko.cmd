@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/13th_ramblock/5th/ramblock.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/13th_ramblock/5th/ramblock.ko /home/wu/workspace/drivers/13th_ramblock/5th/ramblock.o /home/wu/workspace/drivers/13th_ramblock/5th/ramblock.mod.o

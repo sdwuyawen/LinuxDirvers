@@ -1,2 +1,0 @@
-/home/wu/workspace/drivers/ext_1st/uvc/uvcvideo.ko
-/home/wu/workspace/drivers/ext_1st/uvc/uvc_driver.o /home/wu/workspace/drivers/ext_1st/uvc/uvc_queue.o /home/wu/workspace/drivers/ext_1st/uvc/uvc_v4l2.o /home/wu/workspace/drivers/ext_1st/uvc/uvc_video.o /home/wu/workspace/drivers/ext_1st/uvc/uvc_ctrl.o /home/wu/workspace/drivers/ext_1st/uvc/uvc_status.o /home/wu/workspace/drivers/ext_1st/uvc/uvc_isight.o

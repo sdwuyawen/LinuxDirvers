@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/24th_proc_mymsg/1st/mymsg.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/24th_proc_mymsg/1st/mymsg.ko /home/wu/workspace/drivers/24th_proc_mymsg/1st/mymsg.o /home/wu/workspace/drivers/24th_proc_mymsg/1st/mymsg.mod.o

@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/LDD3/snull/snull.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/LDD3/snull/snull.ko /home/wu/workspace/drivers/LDD3/snull/snull.o /home/wu/workspace/drivers/LDD3/snull/snull.mod.o

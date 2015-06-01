@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/25th_debug_segmentfault/first_drv.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/25th_debug_segmentfault/first_drv.ko /home/wu/workspace/drivers/25th_debug_segmentfault/first_drv.o /home/wu/workspace/drivers/25th_debug_segmentfault/first_drv.mod.o

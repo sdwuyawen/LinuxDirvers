@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/16th_virt_net/2nd/virt_net.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/16th_virt_net/2nd/virt_net.ko /home/wu/workspace/drivers/16th_virt_net/2nd/virt_net.o /home/wu/workspace/drivers/16th_virt_net/2nd/virt_net.mod.o

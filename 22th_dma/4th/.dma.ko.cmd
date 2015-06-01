@@ -1,1 +1,0 @@
-cmd_/home/wu/workspace/drivers/22th_dma/4th/dma.ko := arm-linux-ld -EL  -r -o /home/wu/workspace/drivers/22th_dma/4th/dma.ko /home/wu/workspace/drivers/22th_dma/4th/dma.o /home/wu/workspace/drivers/22th_dma/4th/dma.mod.o
