@@ -1,0 +1,4 @@
+---- spi_init 匹配 (3 in 3 文件) ----
+Gpio_spi.c:void spi_init(void)
+Main.c://	spi_init();
+Spi_tft.c:	spi_init();//使用模拟SPI

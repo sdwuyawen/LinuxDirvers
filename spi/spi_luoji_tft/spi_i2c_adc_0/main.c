@@ -42,7 +42,10 @@ int main()
 	i2c_init();
 
 	spi_tft_init();
-	lcd_clear(0xFF00);	
+	
+	lcd_clear(CL_RED);
+	lcd_clear(CL_GREEN);
+	lcd_clear(CL_BLUE);
 
 //	spi_init();
 //	spi_tft_init();

@@ -5,6 +5,9 @@
 *.ko
 *.mod.c
 
+*.bin
+*.elf
+
 #source insight project files
 *.IAB
 *.IAD
