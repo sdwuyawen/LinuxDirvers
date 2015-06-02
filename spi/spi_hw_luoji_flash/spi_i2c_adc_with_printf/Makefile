@@ -13,7 +13,7 @@ CPPFLAGS   	:= -nostdinc -I$(INCLUDEDIR)
 export 	CC LD OBJCOPY OBJDUMP INCLUDEDIR CFLAGS CPPFLAGS AR
 #export 	CC LD OBJCOPY OBJDUMP CFLAGS  AR
 
-objs := start.o clock.o sdram.o main.o mmu.o nand.o uart.o interrupt.o i2c.o at24cxx.o lcd.o gpio_spi.o spi_tft.o spi_flash.o s3c2416_spi.o lib/libc.a
+objs := start.o clock.o sdram.o main.o mmu.o nand.o uart.o interrupt.o i2c.o at24cxx.o lcd.o gpio_spi.o spi_tft.o spi_flash.o s3c2416_spi.o spi_mcp2515.o lib/libc.a
 
 spi.bin : $(objs) 
 	${LD}  -T spi.lds -o spi.elf $^

@@ -105,5 +105,8 @@
 
 
 void spi_hw_init(void);
+unsigned char  spi_hw_send_byte(unsigned char value);
+void spi_hw_cs_clr(void);
+void spi_hw_cs_set(void);
 
 #endif

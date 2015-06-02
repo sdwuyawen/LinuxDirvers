@@ -30,7 +30,9 @@ void spi_hw_gpio_init(void)
 	/* GPL13 SS */
 	GPLCON &= ~(3 << (13 * 2));
 	GPLCON |= (2 << (13 * 2));
-	GPLDAT &= ~(1 << 13);
+//	GPLDAT &= ~(1 << 13);
+	GPLDAT |= (1 << 13);
+
 
 }
 
@@ -55,7 +57,7 @@ void spi_reg_init(void)
 	unsigned int spi_inten;
 	unsigned int spi_packet;
 	unsigned int spi_slavecfg;
-	unsigned char prescaler = 5;
+	unsigned char prescaler = 30;
 
 	
 	/* Enable HS-SPI_0 (EPLL) clock, Enable SPICLK0 (MPLL) */
@@ -155,7 +157,8 @@ void spi_reg_init(void)
 
 	/* 7. Set nSS low to start Tx or Rx operation ?????? */
 	spi_slavecfg = S3C_SLAVE_SEL;
-	spi_slavecfg &= SPI_SLAVE_SIG_ACT;
+	spi_slavecfg |= SPI_SLAVE_SIG_INACT;
+	spi_slavecfg &= ~SPI_SLAVE_AUTO;
 	spi_slavecfg |= (0x3f << 4);
 
 	S3C_SLAVE_SEL = spi_slavecfg;
@@ -167,6 +170,49 @@ void spi_hw_init(void)
 	spi_hw_gpio_init();
 	spi_reg_init();
 	spi_print_reg();
+}
+
+void spi_hw_cs_clr(void)
+{
+	unsigned int spi_slavecfg;
+	
+	spi_slavecfg = S3C_SLAVE_SEL;
+	spi_slavecfg &= ~SPI_SLAVE_SIG_INACT;
+	spi_slavecfg &= ~SPI_SLAVE_AUTO;
+
+	S3C_SLAVE_SEL = spi_slavecfg;
+}
+
+void spi_hw_cs_set(void)
+{
+	unsigned int spi_slavecfg;
+	
+	spi_slavecfg = S3C_SLAVE_SEL;
+	spi_slavecfg |= SPI_SLAVE_SIG_INACT;
+	spi_slavecfg &= ~SPI_SLAVE_AUTO;
+
+	S3C_SLAVE_SEL = spi_slavecfg;
+}
+
+unsigned char  spi_hw_send_byte(unsigned char value)
+{
+	S3C_SPI_TX_DATA = value;
+
+	while((S3C_SPI_STATUS & (1 << 21)) == 0)
+	{
+//		spi_print_reg();
+	}
+//	printf("\r\n");
+
+//	printf("end of %s\r\n", __FUNCTION__);
+	
+//	spi_print_reg();
+//	printf("\r\n");
+
+	delay_ms(100);
+	return S3C_SPI_RX_DATA;
+
+	return 0;
 }
 
 #if 0

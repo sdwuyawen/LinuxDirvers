@@ -14,6 +14,7 @@
 #include "spi_tft.h"
 #include "spi_flash.h"
 #include "s3c2416_spi.h"
+#include "spi_mcp2515.h"
 #include "string.h"
 
 #include "stdio.h"
@@ -44,6 +45,7 @@ int main()
 	int data;
 	char buf[100];
 	unsigned int val;
+	unsigned char byte;
 
 	unsigned int MID;
 	unsigned int DID;
@@ -59,8 +61,12 @@ int main()
 	lcd_clear(CL_BLUE);
 #endif
 
-	/* ³õÊ¼»¯Ó²¼þSPI */
-	spi_hw_init();
+	spi_mcp2515_init();
+//	spi_hw_send_byte(0xFF);
+	byte = spi_mcp2515_read_reg(0x0E);
+	printf("CAN STAT = %08x\r\n", byte);
+	byte = spi_mcp2515_read_reg(0x0F);
+	printf("CAN CONTROL = %08x\r\n", byte);
 
 	spi_flash_init();
 	spi_flash_read_id(&MID, &DID);
