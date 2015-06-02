@@ -81,10 +81,22 @@ static void spi_do_set(void)
 	GPGDAT |= (1 << 3);
 }
 
+static unsigned char spi_get_miso(void)
+{
+	if(GPFDAT & (1 << 7))
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
 
-void  SPIvSendByte(unsigned char value)
+unsigned char  SPIvSendByte(unsigned char value)
 {
 	unsigned char i = 0;
+	unsigned char byte_read = 0;
 
 	delay_ms(1);
 	
@@ -98,6 +110,9 @@ void  SPIvSendByte(unsigned char value)
 			spi_do_set(); //Êä³öÊý¾Ý
 		else 
 			spi_do_clr();
+
+		byte_read <<= 1;
+		byte_read |= spi_get_miso();
 
 		delay_ms(1);
  
@@ -113,19 +128,11 @@ void  SPIvSendByte(unsigned char value)
 	spi_clk_clr();
 
 	delay_ms(1);
+
+	return byte_read;
 }
 
-static unsigned char spi_get_miso(void)
-{
-	if(GPFDAT & (1 << 7))
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
+
 unsigned char SPIvRecvByte(void)
 {
 	unsigned char i = 0;

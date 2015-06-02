@@ -13,6 +13,7 @@
 #include "i2c.h"
 #include "spi_tft.h"
 #include "spi_flash.h"
+#include "string.h"
 
 unsigned char at24cxx_read(unsigned char address);
 void at24cxx_write(unsigned char address, unsigned char data);
@@ -38,6 +39,8 @@ int main()
 //	short color;
 //	int address;
 	int data;
+	char buf[100];
+	unsigned int val;
 
 	unsigned int MID;
 	unsigned int DID;
@@ -56,10 +59,25 @@ int main()
 	spi_flash_init();
 	spi_flash_read_id(&MID, &DID);
 
-	putstring("spi flash ID = \r\n");
+	putstring("read spi flash ID = \r\n");
 
 	putinthex(MID);
 	putinthex(DID);
+
+	spi_flash_read(8 * 1024, (unsigned char *)&val, sizeof(val));
+	val++;
+	spi_flash_erase_sector(8 * 1024);
+	spi_flash_page_program(8 * 1024, (unsigned char *)&val, sizeof(val));
+	putstring("val = ");
+	putinthex(val);
+
+	spi_flash_erase_sector(4 * 1024);
+	spi_flash_page_program(4 * 1024, "Compass", 8);
+	spi_flash_read(4 * 1024, buf, 8);
+
+	putstring("buf = ");
+	putstring(buf);
+	putstring("\r\n");
 	
 	putchar('O');
 	putchar('K');
