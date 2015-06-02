@@ -41,29 +41,17 @@ void uart_init(void)
 }
 
 // 接收一个字符  
-char getchar_l(void)
+char getchar(void)
 {
 	while ((UFSTAT0 & 0x7f) == 0);  // 如果RX FIFO空，等待 
 	return URXH0;                   // 取数据 
 }
 
 // 发送一个字符  
-void putchar_l(char c)
+void putchar(char c)
 {
 	while (UFSTAT0 & (1<<14)); 		// 如果TX FIFO满，等待 
 	UTXH0 = c;                      // 写数据 
-}
-
-void putc(unsigned char c)
-{
-	while (UFSTAT0 & (1<<14)); 		// 如果TX FIFO满，等待 
-	UTXH0 = c;                      // 写数据 
-}
-
-unsigned char getc(void)
-{
-	while ((UFSTAT0 & 0x7f) == 0);  // 如果RX FIFO空，等待 
-	return URXH0;                   // 取数据 
 }
 
 
@@ -72,7 +60,7 @@ void putstring(char *string)
 {
 	while((*string) != 0x00)
 	{
-		putchar_l(*string);
+		putchar(*string);
 		string ++;
 	}
 }
@@ -80,16 +68,16 @@ void putstring(char *string)
 void putinthex(unsigned int data)
 {
 	/*
-	putchar_l((data /0x10000000)+ '0');
-	putchar_l((data %0x10000000) / 0x01000000+ '0');
-	putchar_l((data %0x01000000) / 0x00100000+ '0');
-	putchar_l((data %0x00100000) / 0x00010000+ '0');
-	putchar_l((data %0x00010000) / 0x00001000+ '0');
-	putchar_l((data %0x00001000) / 0x00000100+ '0');
-	putchar_l((data %0x00000100) / 0x00000010+ '0');
-	putchar_l((data %0x00000010) / 0x00000001+ '0');
-	putchar_l('\r');
-	putchar_l('\n');
+	putchar((data /0x10000000)+ '0');
+	putchar((data %0x10000000) / 0x01000000+ '0');
+	putchar((data %0x01000000) / 0x00100000+ '0');
+	putchar((data %0x00100000) / 0x00010000+ '0');
+	putchar((data %0x00010000) / 0x00001000+ '0');
+	putchar((data %0x00001000) / 0x00000100+ '0');
+	putchar((data %0x00000100) / 0x00000010+ '0');
+	putchar((data %0x00000010) / 0x00000001+ '0');
+	putchar('\r');
+	putchar('\n');
 	*/
 
 	unsigned int i;
@@ -100,14 +88,14 @@ void putinthex(unsigned int data)
 		data_char = (data >> (4 *(7 - i))) & 0x0F;
 		if(data_char > 9)
 		{
-			putchar_l(data_char - 0x0A + 'A');
+			putchar(data_char - 0x0A + 'A');
 		}
 		else
 		{
-			putchar_l(data_char + '0');
+			putchar(data_char + '0');
 		}
 	}
-	putchar_l('\r');
-	putchar_l('\n');
+	putchar('\r');
+	putchar('\n');
 	
 }

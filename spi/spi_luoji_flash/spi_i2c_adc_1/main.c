@@ -15,8 +15,6 @@
 #include "spi_flash.h"
 #include "string.h"
 
-#include "stdio.h"
-
 unsigned char at24cxx_read(unsigned char address);
 void at24cxx_write(unsigned char address, unsigned char data);
 
@@ -61,11 +59,10 @@ int main()
 	spi_flash_init();
 	spi_flash_read_id(&MID, &DID);
 
-	printf("SPI Flash : MID = 0x%02x, PID = 0x%02x\n\r", MID, DID);
-//	putstring("read spi flash ID = \r\n");
+	putstring("read spi flash ID = \r\n");
 
-//	putinthex(MID);
-//	putinthex(DID);
+	putinthex(MID);
+	putinthex(DID);
 
 	spi_flash_read(8 * 1024, (unsigned char *)&val, sizeof(val));
 	val++;
@@ -82,10 +79,10 @@ int main()
 	putstring(buf);
 	putstring("\r\n");
 	
-	putchar_l('O');
-	putchar_l('K');
-	putchar_l('\r');
-	putchar_l('\n');
+	putchar('O');
+	putchar('K');
+	putchar('\r');
+	putchar('\n');
 	putstring("mmu enabled\r\n");
 	putstring("12.nand_boot\r\n");
 
@@ -109,8 +106,8 @@ int main()
 	
 	while (1)
 	{
-		c = getchar_l();
-		putchar_l(c);
+		c = getchar();
+		putchar(c);
 
 	}
 	return 0;
@@ -147,10 +144,10 @@ int memory_test(void)
 	{
 		putstring("Mem Test Error");
 		
-		putchar_l(i / 1000 + '0');
-		putchar_l((i % 1000) / 100+ '0');
-		putchar_l((i % 100) / 10+ '0');
-		putchar_l((i % 10) / 1+ '0');
+		putchar(i / 1000 + '0');
+		putchar((i % 1000) / 100+ '0');
+		putchar((i % 100) / 10+ '0');
+		putchar((i % 10) / 1+ '0');
 	}*/
 
 	unsigned int i;
