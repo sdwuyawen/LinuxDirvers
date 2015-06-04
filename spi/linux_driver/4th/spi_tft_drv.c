@@ -163,9 +163,38 @@ static ssize_t oled_write(struct file *file,
 
 #endif
 
+void sps_tft_cld_clear(unsigned int color)
+{
+	
+}
+
+#define TFT_CMD_INIT       0x100001
+#define TFT_CMD_CLEAR_ALL  0x100002
+#define TFT_CMD_CLEAR_PAGE 0x100003
+#define TFT_CMD_SET_POS    0x100004
+
+static long tft_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+{
+	switch (cmd)
+	{
+		case TFT_CMD_INIT:
+		{
+			printk("TFT_CMD_INIT\n");
+//			sps_tft_cld_init();
+			break;
+		}
+		case TFT_CMD_CLEAR_ALL:
+		{
+			sps_tft_cld_clear(arg);
+			break;
+		}
+	}
+	return 0;
+}
+
 static struct file_operations spitft_ops = {
 	.owner            = THIS_MODULE,
-	.unlocked_ioctl   = NULL,
+	.unlocked_ioctl   = tft_ioctl,
 	.write            = NULL,
 };
 
