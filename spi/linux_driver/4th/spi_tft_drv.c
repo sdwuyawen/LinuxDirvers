@@ -6,6 +6,8 @@
 #include <linux/spi/spi.h>
 
 #include <linux/fs.h>
+#include <asm/arch/regs-gpio.h>
+#include <asm/hardware.h>
 
 
 
@@ -15,14 +17,14 @@
 static int major;
 static struct class *class;
 
-#if 0
-static int spi_oled_dc_pin;
-static struct spi_device *spi_oled_dev;
 static unsigned char *ker_buf;
+static int spi_tft_rs_pin;
+static struct spi_device *spi_oled_dev;
 
+#if 0
 static void OLED_Set_DC(char val)
 {
-    s3c2410_gpio_setpin(spi_oled_dc_pin, val);
+    s3c2410_gpio_setpin(spi_tft_rs_pin, val);
 }
 
 static void OLEDWriteCmd(unsigned char cmd)
@@ -169,12 +171,15 @@ static struct file_operations spitft_ops = {
 
 static int __devinit spi_tft_probe(struct spi_device *spi)
 {
-//	spi_oled_dev = spi;
-//	spi_oled_dc_pin = (int)spi->dev.platform_data;
-//	s3c2410_gpio_cfgpin(spi_oled_dc_pin, S3C2410_GPIO_OUTPUT);
-//	s3c2410_gpio_cfgpin(spi->chip_select, S3C2410_GPIO_OUTPUT);
+	spi_oled_dev = spi;
+	spi_tft_rs_pin = (int)spi->dev.platform_data;						/* spi->dev指向spi_board_info，在spi_new_device()里被注册 */
+	s3c2410_gpio_cfgpin(spi_tft_rs_pin, S3C2410_GPIO_OUTPUT);
+	s3c2410_gpio_cfgpin(spi->chip_select, S3C2410_GPIO_OUTPUT);		/* spi->chip_select指向spi_board_info的chip_select，在spi_new_device()里被注册 */
 
-//	ker_buf = kmalloc(4096, GFP_KERNEL);
+//	printk("spi_tft_rs_pin = %08x\n", spi_tft_rs_pin);					/* 0xa7 == S3C2410_GPF7 */
+//	printk("spi->chip_select = %08x\n", spi->chip_select);					/* 0xea == S3C2410_GPH10 */
+	
+	ker_buf = kmalloc(4096, GFP_KERNEL);
 
 	/* 注册一个 file_operations */
 	major = register_chrdev(0, "spigpio_tft", &spitft_ops);
@@ -196,7 +201,7 @@ static int __devexit spi_tft_remove(struct spi_device *spi)
 	class_destroy(class);
 	unregister_chrdev(major, "spigpio_tft");
 
-//	kfree(ker_buf);
+	kfree(ker_buf);
     
 	return 0;
 }
