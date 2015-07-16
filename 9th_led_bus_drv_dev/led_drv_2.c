@@ -111,7 +111,7 @@ static int led_remove(struct platform_device *pdev)
 	
 	/* iounmap */
 
-	class_device_destroy(cls, major);		//	class_device_unregister(dev);
+	class_device_destroy(cls, MKDEV(major, 0));		//	class_device_unregister(dev);
 	class_destroy(cls);
 	unregister_chrdev(major, "myled"); // п╤ть
 

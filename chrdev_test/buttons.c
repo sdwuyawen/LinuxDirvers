@@ -68,6 +68,13 @@ static struct timer_list buttons_timer;
 
 static DECLARE_WAIT_QUEUE_HEAD(button_waitq);
 
+static struct work_struct my_wq; 					/* 定义一个工作队列 */
+static void my_wq_func(struct work_struct *work);	/* 定义一个处理函数 */
+
+/* 定义与绑定tasklet函数 */
+static void my_tasklet_func(unsigned long t);
+DECLARE_TASKLET(my_tasklet, my_tasklet_func, 0);
+
 /* 中断事件标志, 中断服务程序将它置1，sixth_drv_read将它清0 */
 static volatile int ev_press = 0;
 
@@ -107,6 +114,22 @@ static irqreturn_t buttons_irq(int irq, void *dev_id)
 	mod_timer(&buttons_timer, jiffies+HZ/100);
 		
 	return IRQ_RETVAL(IRQ_HANDLED);
+}
+
+/* 工作队列函数 */
+static void my_wq_func(struct work_struct *work)
+{
+	(void)work;
+	printk("my_wq_func before sleep\n");
+	msleep(1000);
+	printk("my_wq_func after sleep\n");
+}
+
+/* tasklet函数 */
+void my_tasklet_func(unsigned long t)
+{
+	(void)t;
+	printk("tasklet is executing\n");
 }
 
 static int sixth_drv_open(struct inode *inode, struct file *file)
@@ -251,26 +274,54 @@ static void buttons_timer_function(unsigned long data)
 	wake_up_interruptible(&button_waitq);   /* 唤醒休眠的进程 */
 
 	kill_fasync (&button_async, SIGIO, POLL_IN);	/* 发送SIGIO信号给应用程序，button_async确定发给哪个进程 */
+
+	/* 调度工作队列执行 */
+	schedule_work(&my_wq);
+
+	//调度tasklet执行
+	tasklet_schedule(&my_tasklet);
 }
 
 
 int major;
+#define BUTTON_MAJOR 251
 static int sixth_drv_init(void)
 {
 	/* 初始化定时器 */
 	init_timer(&buttons_timer);
 	buttons_timer.function = buttons_timer_function;
-	buttons_timer.expires  = 0;		/* 超时时间是0，立刻会进入定时器处理函数 */
+	/* 10ms后进入定时器中断 */
+	buttons_timer.expires  = jiffies+HZ/100;
 	add_timer(&buttons_timer); 
-	
-	major = register_chrdev(0, "sixth_drv", &sencod_drv_fops);
 
-	sixthdrv_class = class_create(THIS_MODULE, "sixth_drv");
+	/* 初始化workqueue */
+	INIT_WORK(&my_wq, (void(*) (struct work_struct *))my_wq_func);
 
-	sixthdrv_class_dev = class_device_create(sixthdrv_class, NULL, MKDEV(major, 0), NULL, "buttons1"); /* /dev/buttons */
-	sixthdrv_class_dev = class_device_create(sixthdrv_class, NULL, MKDEV(major, 1), NULL, "buttons2"); /* /dev/buttons */
-	sixthdrv_class_dev = class_device_create(sixthdrv_class, NULL, MKDEV(major, 2), NULL, "buttons3"); /* /dev/buttons */
-	sixthdrv_class_dev = class_device_create(sixthdrv_class, NULL, MKDEV(major, 3), NULL, "buttons4"); /* /dev/buttons */
+	/* 指定主设备号为BUTTON_MAJOR，返回0表示成功 */
+	major = register_chrdev(BUTTON_MAJOR, "chr_btn", &sencod_drv_fops);
+	if(major == 0)
+	{
+		printk("register_chrdev %d\n", BUTTON_MAJOR);
+	}
+
+	/* 注册了字符设备后，没有注册设备类和类之下的设备，则mdev无法自动创建设备节点，需要手动建立
+	 * 手动建立设备节点: mknod /dev/buttons c 252 0
+	 	Usage: mknod [OPTIONS] NAME TYPE MAJOR MINOR
+
+		Create a special file (block, character, or pipe)
+
+		Options:
+		        -m      Create the special file using the specified mode (default a=rw)
+
+		TYPEs include:
+		        b:      Make a block (buffered) device
+		        c or u: Make a character (un-buffered) device
+		        p:      Make a named pipe. MAJOR and MINOR are ignored for named pipes
+	 */
+
+//	sixthdrv_class = class_create(THIS_MODULE, "sixth_drv");
+
+//	sixthdrv_class_dev = class_device_create(sixthdrv_class, NULL, MKDEV(major, 0), NULL, "buttons"); /* /dev/buttons */
 
 	gpfcon = (volatile unsigned long *)ioremap(0x56000050, 16);
 	gpfdat = gpfcon + 1;
@@ -281,13 +332,10 @@ static int sixth_drv_init(void)
 
 static void sixth_drv_exit(void)
 {
-	unregister_chrdev(major, "third_drv");
+	unregister_chrdev(BUTTON_MAJOR, "chr_btn");
 //	class_device_unregister(sixthdrv_class_dev);
-	class_device_destroy(sixthdrv_class, MKDEV(major, 0));
-	class_device_destroy(sixthdrv_class, MKDEV(major, 1));
-	class_device_destroy(sixthdrv_class, MKDEV(major, 2));
-	class_device_destroy(sixthdrv_class, MKDEV(major, 3));
-	class_destroy(sixthdrv_class);
+//	class_device_destroy(sixthdrv_class, MKDEV(major, 0));
+//	class_destroy(sixthdrv_class);
 	iounmap(gpfcon);
 	
 //	return 0;

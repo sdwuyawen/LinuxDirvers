@@ -1,0 +1,43 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DECLARE_MUTEX	buttons.c	/^static DECLARE_MUTEX(button_lock);		\/* 定义信号量 *\/$/;"	p	file:
+DECLARE_WAIT_QUEUE_HEAD	buttons.c	/^static DECLARE_WAIT_QUEUE_HEAD(button_waitq);$/;"	p	file:
+KERN_DIR	Makefile	/^KERN_DIR = \/home\/wu\/workspace\/kernel\/linux-2.6.22.with_yaffs20070816$/;"	m
+__attribute_used__	buttons.mod.c	/^__attribute_used__$/;"	v	file:
+__this_module	buttons.mod.c	/^struct module __this_module$/;"	v	typeref:struct:module
+button_async	buttons.c	/^static struct fasync_struct *button_async;$/;"	v	typeref:struct:fasync_struct	file:
+buttons_irq	buttons.c	/^static irqreturn_t buttons_irq(int irq, void *dev_id)$/;"	f	file:	signature:(int irq, void *dev_id)
+buttons_timer	buttons.c	/^static struct timer_list buttons_timer;$/;"	v	typeref:struct:timer_list	file:
+buttons_timer_function	buttons.c	/^static void buttons_timer_function(unsigned long data)$/;"	f	file:	signature:(unsigned long data)
+ev_press	buttons.c	/^static volatile int ev_press = 0;$/;"	v	file:
+fd	buttons_test.c	/^int fd;$/;"	v
+gpfcon	buttons.c	/^volatile unsigned long *gpfcon;$/;"	v
+gpfdat	buttons.c	/^volatile unsigned long *gpfdat;$/;"	v
+gpfudp	buttons.c	/^volatile unsigned long *gpfudp;$/;"	v
+irq_pd	buttons.c	/^static struct pin_desc *irq_pd = 0;$/;"	v	typeref:struct:pin_desc	file:
+key_val	buttons.c	/^	unsigned int key_val;$/;"	m	struct:pin_desc	file:	access:public
+key_val	buttons.c	/^static unsigned char key_val;$/;"	v	file:
+main	buttons_test.c	/^int main(int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
+major	buttons.c	/^int major;$/;"	v
+my_signal_fun	buttons_test.c	/^void my_signal_fun(int signum)$/;"	f	signature:(int signum)
+pin	buttons.c	/^	unsigned int pin;$/;"	m	struct:pin_desc	file:	access:public
+pin_desc	buttons.c	/^struct pin_desc{$/;"	s	file:
+pin_desc::key_val	buttons.c	/^	unsigned int key_val;$/;"	m	struct:pin_desc	file:	access:public
+pin_desc::pin	buttons.c	/^	unsigned int pin;$/;"	m	struct:pin_desc	file:	access:public
+pins_desc	buttons.c	/^struct pin_desc pins_desc[5] = {$/;"	v	typeref:struct:pin_desc
+sencod_drv_fops	buttons.c	/^static struct file_operations sencod_drv_fops = {$/;"	v	typeref:struct:file_operations	file:
+sixth_drv_close	buttons.c	/^int sixth_drv_close(struct inode *inode, struct file *file)$/;"	f	signature:(struct inode *inode, struct file *file)
+sixth_drv_exit	buttons.c	/^module_exit(sixth_drv_exit);$/;"	v
+sixth_drv_exit	buttons.c	/^static void sixth_drv_exit(void)$/;"	f	file:	signature:(void)
+sixth_drv_fasync	buttons.c	/^static int sixth_drv_fasync (int fd, struct file *filp, int on)$/;"	f	file:	signature:(int fd, struct file *filp, int on)
+sixth_drv_init	buttons.c	/^module_init(sixth_drv_init);$/;"	v
+sixth_drv_init	buttons.c	/^static int sixth_drv_init(void)$/;"	f	file:	signature:(void)
+sixth_drv_open	buttons.c	/^static int sixth_drv_open(struct inode *inode, struct file *file)$/;"	f	file:	signature:(struct inode *inode, struct file *file)
+sixth_drv_poll	buttons.c	/^static unsigned sixth_drv_poll(struct file *file, poll_table *wait)$/;"	f	file:	signature:(struct file *file, poll_table *wait)
+sixth_drv_read	buttons.c	/^ssize_t sixth_drv_read(struct file *file, char __user *buf, size_t size, loff_t *ppos)$/;"	f	signature:(struct file *file, char __user *buf, size_t size, loff_t *ppos)
+sixthdrv_class	buttons.c	/^static struct class *sixthdrv_class;$/;"	v	typeref:struct:class	file:
+sixthdrv_class_dev	buttons.c	/^static struct class_device	*sixthdrv_class_dev;$/;"	v	typeref:struct:class_device	file:
