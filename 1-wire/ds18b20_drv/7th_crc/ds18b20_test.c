@@ -24,6 +24,7 @@ int main(void)
 	int cnt_total = 0;
 	int cnt_data_error = 0;
 	int cnt_read_error = 0;
+	int ret;
 
 	//DS18B20≤‚ ‘
 	printf("DS18B20 test...\n");
@@ -39,10 +40,11 @@ int main(void)
 	}
 	while(1)
 	{
-			if(read(fd,&data,sizeof(data)))
+			if((ret = read(fd,&data,sizeof(data))) != 0)
 			{
 				cnt_read_error++;
-				printf("read error!\n");
+				printf("app read error!, ret = %d\n", ret);
+				continue;
 			}
 				
 			cnt_total++;
@@ -51,7 +53,7 @@ int main(void)
 				cnt_data_error++;
 			}
 			printf("total = %d, ds18b20 = %4d, cnt_read_error = %d, cnt_data_error = %d\n", cnt_total, data, cnt_read_error, cnt_data_error);
-			usleep(1000 * 1000);	//1000MS
+			usleep(1000 * 200);	//1000MS
 	}
 }
 
