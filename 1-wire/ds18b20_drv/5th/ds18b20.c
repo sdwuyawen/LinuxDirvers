@@ -177,10 +177,10 @@ u8 DS18B20_Reset(void)
 	Set18b20IOout();
 	// 向18B20发送一个上升沿，并保持高电平状态约100微秒 
 	Write18b20IO(1);
-	Delay_US(1);
+	Delay_US(100);
 	// 向18B20发送一个下降沿，并保持低电平状态约600微秒 
 	Write18b20IO(0);
-	Delay_US(500);
+	Delay_US(600);
 	// 向18B20发送一个上升沿，此时可释放DS18B20总线 
 	Write18b20IO(1);
 	Delay_US(2);
@@ -226,6 +226,8 @@ u8 DS18B20_ReadData(void)
 		Write18b20IO(1);
 		Set18b20IOin();
 		Delay_US(1);
+		// 若总线在我们设它为低电平之后若1微秒之内变为高 
+		// 则认为从DS18B20处收到一个“1”信号
 		if(Read18b20IO())
 			data |= 0x80;
 		Delay_US(60);
@@ -253,12 +255,12 @@ void DS18B20_WriteData(u8 data)
 	for(i = 0;i < 8;i ++)
 	{
 		Write18b20IO(0);
-		Delay_US(12);
+		Delay_US(2);
 		Write18b20IO(data & 0x01);
 		Delay_US(30);
 		Write18b20IO(1);
 		data >>= 1;
-		Delay_US(12);
+		Delay_US(2);
 	}
 }
 

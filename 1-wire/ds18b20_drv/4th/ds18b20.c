@@ -253,7 +253,7 @@ void DS18B20_WriteData(u8 data)
 	for(i = 0;i < 8;i ++)
 	{
 		Write18b20IO(0);
-		Delay_US(12);
+		Delay_US(2);
 		Write18b20IO(data & 0x01);
 		Delay_US(30);
 		Write18b20IO(1);

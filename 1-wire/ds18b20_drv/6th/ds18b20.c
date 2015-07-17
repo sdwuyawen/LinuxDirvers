@@ -177,26 +177,25 @@ u8 DS18B20_Reset(void)
 	Set18b20IOout();
 	// 向18B20发送一个上升沿，并保持高电平状态约100微秒 
 	Write18b20IO(1);
-	Delay_US(1);
+	Delay_US(100);
 	// 向18B20发送一个下降沿，并保持低电平状态约600微秒 
 	Write18b20IO(0);
-	Delay_US(500);
+	Delay_US(600);
 	// 向18B20发送一个上升沿，此时可释放DS18B20总线 
 	Write18b20IO(1);
-	Delay_US(2);
-
 	// 以上动作是给DS18B20一个复位脉冲 
 	// 通过再次配置GPIOB1引脚成输入状态，可以检测到DS18B20是否复位成功
 	Set18b20IOin();
+	Delay_US(15);
 	// 若总线在释放后总线状态为高电平，则复位失败
 	while(Read18b20IO())
 	{
 		i ++;
-		Delay_US(1);
-		if(i > 100)
+		Delay_US(10);
+		if(i > 30)
 			return 1;
 	}
-	Delay_US(250);
+	Delay_US(100);
 	return 0x00;
 }
 
@@ -204,32 +203,27 @@ u8 DS18B20_Reset(void)
 //读DS18B20数据
 u8 DS18B20_ReadData(void)
 {
-	// 读“1”时隙： 
-	//     若总线状态保持在低电平状态1微秒到15微秒之间 
-	//     然后跳变到高电平状态且保持在15微秒到60微秒之间 
-	//      就认为从DS18B20读到一个“1”信号 
-	//     理想情况: 1微秒的低电平然后跳变再保持60微秒的高电平 
-	// 
-	// 读“0”时隙： 
-	//     若总线状态保持在低电平状态15微秒到30微秒之间 
-	//     然后跳变到高电平状态且保持在15微秒到60微秒之间 
-	//     就认为从DS18B20读到一个“0”信号 
-	//     理想情况: 15微秒的低电平然后跳变再保持46微秒的高电平 
 	u8 i,data = 0;
 
+	Delay_US(5);
 	for(i = 0;i < 8;i ++)
 	{
-		Set18b20IOout();
-		Write18b20IO(0);
 		data >>= 1;
-		Delay_US(2);
+		Set18b20IOout();
 		Write18b20IO(1);
-		Set18b20IOin();
-		Delay_US(1);
+		Delay_US(2);
+		//开始read slot
+		Write18b20IO(0);
+		Delay_US(3);
+		Write18b20IO(1);
+		Set18b20IOin();	
+		Delay_US(2);
+
 		if(Read18b20IO())
 			data |= 0x80;
 		Delay_US(60);
 	}
+	Delay_US(5);
 	return data;
 }
 
@@ -238,28 +232,22 @@ u8 DS18B20_ReadData(void)
 //写DS18B20数据
 void DS18B20_WriteData(u8 data)
 {
-	// 写“1”时隙： 
-	//     保持总线在低电平1微秒到15微秒之间 
-	//     然后再保持总线在高电平15微秒到60微秒之间 
-	//     理想状态: 1微秒的低电平然后跳变再保持60微秒的高电平 
-	// 
-	// 写“0”时隙： 
-	//     保持总线在低电平15微秒到60微秒之间 
-	//     然后再保持总线在高电平1微秒到15微秒之间 
-	//     理想状态: 60微秒的低电平然后跳变再保持1微秒的高电平
 	u8 i;
-	
+
+	Delay_US(5);
 	Set18b20IOout();
 	for(i = 0;i < 8;i ++)
 	{
+		//开始write slot
 		Write18b20IO(0);
-		Delay_US(12);
+		Delay_US(3);
 		Write18b20IO(data & 0x01);
-		Delay_US(30);
+		Delay_US(80);
 		Write18b20IO(1);
 		data >>= 1;
-		Delay_US(12);
+		Delay_US(5);
 	}
+	Delay_US(5);
 }
 
 //读取温度
@@ -267,18 +255,40 @@ int DS18B20_ReadTemper(void)
 {
 	u8 th, tl;
 	int data;
+	int data7;
 
 	if(DS18B20_Reset())
 	{
 		return DS18B20_ERROR;
 	}
+	Delay_US(50);
 	DS18B20_WriteData(0xcc);
 	DS18B20_WriteData(0x44);
-	DS18B20_Reset();
+	
+	if(DS18B20_Reset())
+	{
+		return DS18B20_ERROR;
+	}
+	Delay_US(50);
 	DS18B20_WriteData(0xcc);
 	DS18B20_WriteData(0xbe);
+
+	Delay_US(50);
 	tl = DS18B20_ReadData();
 	th = DS18B20_ReadData();
+
+	DS18B20_ReadData();
+	DS18B20_ReadData();
+	DS18B20_ReadData();
+	DS18B20_ReadData();
+	DS18B20_ReadData();
+	data7 = DS18B20_ReadData();
+	printk("data7 , 0x%02x\n", data7);
+	
+	if(DS18B20_Reset())
+	{
+		return DS18B20_ERROR;
+	}
 	data = th;
 	data <<= 8;
 	data |= tl;
@@ -365,7 +375,10 @@ static ssize_t OK6410_DS18B20_read(
 		return -ERESTARTSYS;
 	temp = DS18B20_ReadTemper();			//读取温度
 	if(temp == DS18B20_ERROR)				//DS18B20初始化失败
+	{
+		up(&DS18B20_sem);							//释放信号量
 		return -1;							//DS18B20读取失败，返回错误
+	}
 
 	ret = copy_to_user(buff, &temp, size);			//将温度写入用户空间							
 
