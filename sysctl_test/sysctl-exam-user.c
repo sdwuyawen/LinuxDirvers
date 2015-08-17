@@ -1,18 +1,3 @@
-//#include <linux/unistd.h>
-//#include <linux/types.h>
-//#include <linux/sysctl.h>
-//#include "sysctl-exam.h"
-//#include <stdio.h>
-//#include <errno.h>
-
-//#define _GNU_SOURCE
-//#include <unistd.h>
-//#include <sys/syscall.h>
-//#include <string.h>
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <linux/sysctl.h>
-
 #define _GNU_SOURCE
 #include <unistd.h>
 #include <sys/syscall.h>

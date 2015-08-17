@@ -4,7 +4,7 @@
 #include <linux/sysctl.h>   
 #include "sysctl-exam.h"   
    
-static char mystring[256];   
+static char mystring[MY_MAX_SIZE];   
 static int myint;   
    
 static struct ctl_table my_sysctl_exam[] = {   
