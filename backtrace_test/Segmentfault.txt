@@ -1,0 +1,47 @@
+# ./firstdrvtest_3 
+first_drv_open,0
+Unable to handle kernel paging request at virtual address 56000010
+pgd = c389c000
+[56000010] *pgd=00000000
+Internal error: Oops: 5 [#1]
+Modules linked in: first_drv
+CPU: 0    Not tainted  (2.6.22-gef37ee9a #235)
+PC is at first_drv_open+0x30/0x58 [first_drv]
+LR is at release_console_sem+0x1bc/0x1d8
+pc : [<bf0000f8>]    lr : [<c0048ad4>]    psr: 60000013
+sp : c0013e68  ip : c0013d90  fp : c0013e7c
+r10: 00000000  r9 : c0012000  r8 : 00000000
+r7 : 00000000  r6 : c3fda5a0  r5 : c04edbc0  r4 : bf000960
+r3 : 56000010  r2 : c03af5f0  r1 : 60000013  r0 : 00000000
+Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  Segment user
+Control: 0005317f  Table: 3389c000  DAC: 00000015
+Process firstdrvtest_3 (pid: 837, stack limit = 0xc0012260)
+Stack: (0xc0013e68 to 0xc0014000)
+3e60:                   c3f7b0a0 c04edbc0 c0013eac c0013e80 c008eaf4 bf0000d8 
+3e80: 00000003 00000000 beaa5eac c04edbc0 c3f7b0a0 c04c11a0 c008e9ac c3894f20 
+3ea0: c0013ed4 c0013eb0 c008a684 c008e9bc c04edbc0 c0013f00 ffffff9c beaa5eac 
+3ec0: 00000002 00000000 c0013ef4 c0013ed8 c008a810 c008a598 00000000 00000002 
+3ee0: c0012000 00000002 c0013f64 c0013ef8 c008a864 c008a7e8 c0013f00 c0013f08 
+3f00: c3894f20 c04c11a0 c005f818 c05ccac0 c05ccac0 00000101 00000001 00000000 
+3f20: c0012000 00000003 00000002 00000000 c0013f64 c0013f40 c008a510 c00a0cb4 
+3f40: 00000000 00000003 00000000 c04edbc0 00000003 c3cf6000 c0013f94 c0013f68 
+3f60: c008a8c0 c008a838 00000000 40024000 c0013f9c 00000000 00000000 00000000 
+3f80: 00000005 c002f048 c0013fa4 c0013f98 c008a9c0 c008a87c 00000000 c0013fa8 
+3fa0: c002eea0 c008a9ac 00000000 00000000 00008620 00000002 beaa5eac 00000001 
+3fc0: 00000000 00000000 00000000 00000005 00000000 00000000 40024000 beaa5d54 
+3fe0: 00000000 beaa5d40 00008494 400d9e4c 60000010 00008620 ea000025 e51b0048 
+Backtrace: 
+[<bf0000c8>] (first_drv_open+0x0/0x58 [first_drv]) from [<c008eaf4>] (chrdev_open+0x148/0x164)
+ r5:c04edbc0 r4:c3f7b0a0
+[<c008e9ac>] (chrdev_open+0x0/0x164) from [<c008a684>] (__dentry_open+0xfc/0x1e4)
+ r8:c3894f20 r7:c008e9ac r6:c04c11a0 r5:c3f7b0a0 r4:c04edbc0
+[<c008a588>] (__dentry_open+0x0/0x1e4) from [<c008a810>] (nameidata_to_filp+0x38/0x50)
+[<c008a7d8>] (nameidata_to_filp+0x0/0x50) from [<c008a864>] (do_filp_open+0x3c/0x44)
+ r4:00000002
+[<c008a828>] (do_filp_open+0x0/0x44) from [<c008a8c0>] (do_sys_open+0x54/0x11c)
+ r5:c3cf6000 r4:00000003
+[<c008a86c>] (do_sys_open+0x0/0x11c) from [<c008a9c0>] (sys_open+0x24/0x28)
+ r8:c002f048 r7:00000005 r6:00000000 r5:00000000 r4:00000000
+[<c008a99c>] (sys_open+0x0/0x28) from [<c002eea0>] (ret_fast_syscall+0x0/0x2c)
+Code: e5843014 eb4123cd e594300c e3a00000 (e5932000) 
+Segmentation fault
